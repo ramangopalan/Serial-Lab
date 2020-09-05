@@ -190,7 +190,7 @@ namespace Seriallab
             {
                 if (rx_textarea.Lines.Count() > 5000)
                     rx_textarea.ResetText();
-                rx_textarea.AppendText("[RX]> " + data);
+                rx_textarea.AppendText("[Receive]: " + data);
             }));
         }
 
@@ -324,7 +324,7 @@ namespace Seriallab
                     {
                         
                         mySerial.Write(tx_data.Replace("\\n", Environment.NewLine));
-                        tx_terminal.AppendText("[TX]> " + tx_data+"\n");
+                        tx_terminal.AppendText("[Transmit]: " + tx_data+"\n");
                     }
                     catch
                     {
@@ -357,7 +357,7 @@ namespace Seriallab
                 try
                 {
                     mySerial.Write(e.KeyChar.ToString());
-                    tx_terminal.AppendText("[TX]> " + e.KeyChar.ToString() + "\n");
+                    tx_terminal.AppendText("[Transmit]: " + e.KeyChar.ToString() + "\n");
                     tx_textarea.Clear();
                 }
                 catch {alert("Can't write to "+mySerial.PortName+" port it might be opennd in another program"); }
@@ -497,7 +497,7 @@ namespace Seriallab
             if (value)
             {
                 connect.Text = "Disconnect";
-                toolStripStatusLabel1.Text = "Connected port: " + mySerial.PortName + " @ " + mySerial.BaudRate + " bps";
+                toolStripStatusLabel1.Text = "Connected port: " + mySerial.PortName + " " + mySerial.BaudRate + " " + mySerial.DataBits + "," + mySerial.Parity + "," + mySerial.StopBits;
             }
             else
             {

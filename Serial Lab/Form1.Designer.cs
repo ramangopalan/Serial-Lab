@@ -280,8 +280,8 @@
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.byte_counter_label,
-            this.toolStripStatusLabel1,
-            this.toolStripStatusLabel2});
+            this.toolStripStatusLabel2,
+            this.toolStripStatusLabel1});
             this.statusStrip1.Location = new System.Drawing.Point(0, 591);
             this.statusStrip1.MinimumSize = new System.Drawing.Size(569, 25);
             this.statusStrip1.Name = "statusStrip1";
@@ -389,9 +389,9 @@
             this.display_hex_radiobutton.AutoSize = true;
             this.display_hex_radiobutton.Location = new System.Drawing.Point(63, 5);
             this.display_hex_radiobutton.Name = "display_hex_radiobutton";
-            this.display_hex_radiobutton.Size = new System.Drawing.Size(47, 17);
+            this.display_hex_radiobutton.Size = new System.Drawing.Size(44, 17);
             this.display_hex_radiobutton.TabIndex = 26;
-            this.display_hex_radiobutton.Text = "HEX";
+            this.display_hex_radiobutton.Text = "Hex";
             this.display_hex_radiobutton.UseVisualStyleBackColor = true;
             // 
             // display_string_radiobutton
