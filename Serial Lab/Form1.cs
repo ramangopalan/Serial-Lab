@@ -131,10 +131,14 @@ namespace Seriallab
             {
                 try
                 {
-                    int dataLength = mySerial.BytesToRead;
-                    byte[] dataRecevied = new byte[dataLength];
-                    int nbytes = mySerial.Read(dataRecevied, 0, dataLength);
-                    if (nbytes == 0) return;
+                    //int dataLength = mySerial.BytesToRead;
+                    //byte[] dataRecevied = new byte[dataLength];
+                    //int nbytes = mySerial.Read(dataRecevied, 0, dataLength);
+                    //string indata = mySerial.ReadLine();
+                    //Console.WriteLine(indata);
+                    //if (nbytes == 0) return;
+                    data = mySerial.ReadLine();
+                    data = data.Substring(3);
 
                     if (datalogger_checkbox.Checked)
                     {
@@ -143,15 +147,16 @@ namespace Seriallab
                         catch { alert("Can't write to " + datalogger_checkbox.Text + " file it might be not exist or it is opennd in another program"); return; }
                     }
 
-
                     this.BeginInvoke((Action)(() =>
                     {
-                        data = System.Text.Encoding.Default.GetString(dataRecevied);
+                        //data = System.Text.Encoding.Default.GetString(dataRecevied);
+                        //data = mySerial.ReadLine();
+                        //Console.WriteLine(data);
 
                         if (!plotter_flag && !backgroundWorker1.IsBusy)
                         {
-                            if (display_hex_radiobutton.Checked)
-                                data = BitConverter.ToString(dataRecevied);
+                            //if (display_hex_radiobutton.Checked)
+                            //    data = BitConverter.ToString(dataRecevied);
 
                             backgroundWorker1.RunWorkerAsync();
                         }
@@ -160,6 +165,7 @@ namespace Seriallab
                         {
                             double number;
                             string[] variables = data.Split('\n')[0].Split(',');
+                            //Console.WriteLine(variables);
                             for (int i = 0; i < variables.Length && i < 5; i++)
                             {
                                 if (double.TryParse(variables[i], out number))
