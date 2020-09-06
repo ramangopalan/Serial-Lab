@@ -54,8 +54,8 @@
             this.databits_label = new System.Windows.Forms.Label();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.byte_counter_label = new System.Windows.Forms.ToolStripStatusLabel();
-            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.rx_textarea = new System.Windows.Forms.RichTextBox();
@@ -294,6 +294,14 @@
             this.byte_counter_label.Name = "byte_counter_label";
             this.byte_counter_label.Size = new System.Drawing.Size(0, 20);
             // 
+            // toolStripStatusLabel2
+            // 
+            this.toolStripStatusLabel2.BackColor = System.Drawing.Color.Transparent;
+            this.toolStripStatusLabel2.Name = "toolStripStatusLabel2";
+            this.toolStripStatusLabel2.Size = new System.Drawing.Size(40, 20);
+            this.toolStripStatusLabel2.Text = "About";
+            this.toolStripStatusLabel2.Click += new System.EventHandler(this.toolStripStatusLabel2_Click);
+            // 
             // toolStripStatusLabel1
             // 
             this.toolStripStatusLabel1.BackColor = System.Drawing.Color.Transparent;
@@ -302,14 +310,6 @@
             this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
             this.toolStripStatusLabel1.Size = new System.Drawing.Size(85, 20);
             this.toolStripStatusLabel1.Text = "No Connection";
-            // 
-            // toolStripStatusLabel2
-            // 
-            this.toolStripStatusLabel2.BackColor = System.Drawing.Color.Transparent;
-            this.toolStripStatusLabel2.Name = "toolStripStatusLabel2";
-            this.toolStripStatusLabel2.Size = new System.Drawing.Size(40, 20);
-            this.toolStripStatusLabel2.Text = "About";
-            this.toolStripStatusLabel2.Click += new System.EventHandler(this.toolStripStatusLabel2_Click);
             // 
             // tabControl1
             // 
@@ -490,7 +490,7 @@
             0,
             0});
             this.send_delay.Minimum = new decimal(new int[] {
-            1,
+            500,
             0,
             0,
             0});
@@ -499,7 +499,7 @@
             this.send_delay.TabIndex = 21;
             this.send_delay.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.send_delay.Value = new decimal(new int[] {
-            1,
+            500,
             0,
             0,
             0});
