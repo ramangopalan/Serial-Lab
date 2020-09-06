@@ -150,6 +150,7 @@ namespace Seriallab
                     else
                     {
                         data = "";
+                        return;
                     }
 
                     if (datalogger_checkbox.Checked)
