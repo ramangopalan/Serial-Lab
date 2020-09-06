@@ -499,7 +499,7 @@ namespace Seriallab
             if (value)
             {
                 connect.Text = "Disconnect";
-                toolStripStatusLabel1.Text = "Connected port: " + mySerial.PortName + " " + mySerial.BaudRate + " " + mySerial.DataBits + "," + mySerial.Parity + "," + mySerial.StopBits;
+                toolStripStatusLabel1.Text = "Connected port: " + mySerial.PortName + " - " + mySerial.BaudRate + ", " + mySerial.DataBits + ", " + mySerial.Parity + ", " + mySerial.StopBits;
             }
             else
             {
@@ -568,6 +568,19 @@ namespace Seriallab
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            int index = set_point.SelectedIndex + 1;
+            if (index != 0)
+            {
+                mySerial.Write("eval \"temp(" + index.ToString() + "," + temp_up_down.Value.ToString() + ")\"\r\n");
+                Task.Delay(500).ContinueWith(t =>
+                {
+                    mySerial.Write("eval \"spsel(" + index.ToString() + ")\"\r\n");
+                });
+            }
         }
     }
   }
