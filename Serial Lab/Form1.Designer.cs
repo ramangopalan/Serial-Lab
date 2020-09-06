@@ -99,6 +99,7 @@
             this.saveAsImageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.clearToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.checkBox_aperiodic = new System.Windows.Forms.CheckBox();
             this.datalogger_options_panel = new System.Windows.Forms.Panel();
             this.datalogger_overwrite_radiobutton = new System.Windows.Forms.RadioButton();
             this.datalogger_append_radiobutton = new System.Windows.Forms.RadioButton();
@@ -108,6 +109,12 @@
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.alert_messege = new System.Windows.Forms.NotifyIcon(this.components);
+            this.temperature_group = new System.Windows.Forms.GroupBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.numericUpDown3 = new System.Windows.Forms.NumericUpDown();
+            this.label9 = new System.Windows.Forms.Label();
+            this.set_point = new System.Windows.Forms.ComboBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.serial_options_group.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -132,13 +139,15 @@
             this.graph_menu.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.datalogger_options_panel.SuspendLayout();
+            this.temperature_group.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).BeginInit();
             this.SuspendLayout();
             // 
             // connect
             // 
-            this.connect.Location = new System.Drawing.Point(412, 113);
+            this.connect.Location = new System.Drawing.Point(454, 3);
             this.connect.Name = "connect";
-            this.connect.Size = new System.Drawing.Size(176, 40);
+            this.connect.Size = new System.Drawing.Size(136, 31);
             this.connect.TabIndex = 0;
             this.connect.Text = "Connect";
             this.connect.UseVisualStyleBackColor = true;
@@ -148,9 +157,9 @@
             // 
             this.portConfig.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.portConfig.FormattingEnabled = true;
-            this.portConfig.Location = new System.Drawing.Point(89, 34);
+            this.portConfig.Location = new System.Drawing.Point(63, 20);
             this.portConfig.Name = "portConfig";
-            this.portConfig.Size = new System.Drawing.Size(76, 21);
+            this.portConfig.Size = new System.Drawing.Size(61, 21);
             this.portConfig.TabIndex = 1;
             this.portConfig.Click += new System.EventHandler(this.portConfig_Click);
             // 
@@ -158,18 +167,18 @@
             // 
             this.baudrateConfig.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.baudrateConfig.FormattingEnabled = true;
-            this.baudrateConfig.Location = new System.Drawing.Point(89, 63);
+            this.baudrateConfig.Location = new System.Drawing.Point(63, 49);
             this.baudrateConfig.Name = "baudrateConfig";
-            this.baudrateConfig.Size = new System.Drawing.Size(76, 21);
+            this.baudrateConfig.Size = new System.Drawing.Size(61, 21);
             this.baudrateConfig.TabIndex = 2;
             // 
             // databitsConfig
             // 
             this.databitsConfig.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.databitsConfig.FormattingEnabled = true;
-            this.databitsConfig.Location = new System.Drawing.Point(89, 92);
+            this.databitsConfig.Location = new System.Drawing.Point(63, 78);
             this.databitsConfig.Name = "databitsConfig";
-            this.databitsConfig.Size = new System.Drawing.Size(76, 21);
+            this.databitsConfig.Size = new System.Drawing.Size(61, 21);
             this.databitsConfig.TabIndex = 3;
             // 
             // stopbitsConfig
@@ -178,18 +187,18 @@
             this.stopbitsConfig.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.stopbitsConfig.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.stopbitsConfig.FormattingEnabled = true;
-            this.stopbitsConfig.Location = new System.Drawing.Point(278, 34);
+            this.stopbitsConfig.Location = new System.Drawing.Point(207, 19);
             this.stopbitsConfig.Name = "stopbitsConfig";
-            this.stopbitsConfig.Size = new System.Drawing.Size(74, 21);
+            this.stopbitsConfig.Size = new System.Drawing.Size(60, 21);
             this.stopbitsConfig.TabIndex = 4;
             // 
             // parityConfig
             // 
             this.parityConfig.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.parityConfig.FormattingEnabled = true;
-            this.parityConfig.Location = new System.Drawing.Point(278, 63);
+            this.parityConfig.Location = new System.Drawing.Point(207, 47);
             this.parityConfig.Name = "parityConfig";
-            this.parityConfig.Size = new System.Drawing.Size(74, 21);
+            this.parityConfig.Size = new System.Drawing.Size(60, 21);
             this.parityConfig.TabIndex = 5;
             // 
             // serial_options_group
@@ -206,9 +215,9 @@
             this.serial_options_group.Controls.Add(this.stopbits_label);
             this.serial_options_group.Controls.Add(this.databitsConfig);
             this.serial_options_group.Controls.Add(this.databits_label);
-            this.serial_options_group.Location = new System.Drawing.Point(14, 20);
+            this.serial_options_group.Location = new System.Drawing.Point(14, 38);
             this.serial_options_group.Name = "serial_options_group";
-            this.serial_options_group.Size = new System.Drawing.Size(385, 133);
+            this.serial_options_group.Size = new System.Drawing.Size(276, 110);
             this.serial_options_group.TabIndex = 9;
             this.serial_options_group.TabStop = false;
             this.serial_options_group.Text = "Serial port options";
@@ -216,7 +225,7 @@
             // flowconrol_label
             // 
             this.flowconrol_label.AutoSize = true;
-            this.flowconrol_label.Location = new System.Drawing.Point(205, 94);
+            this.flowconrol_label.Location = new System.Drawing.Point(137, 80);
             this.flowconrol_label.Name = "flowconrol_label";
             this.flowconrol_label.Size = new System.Drawing.Size(64, 13);
             this.flowconrol_label.TabIndex = 13;
@@ -225,7 +234,7 @@
             // baudrate_label
             // 
             this.baudrate_label.AutoSize = true;
-            this.baudrate_label.Location = new System.Drawing.Point(26, 66);
+            this.baudrate_label.Location = new System.Drawing.Point(5, 52);
             this.baudrate_label.Name = "baudrate_label";
             this.baudrate_label.Size = new System.Drawing.Size(50, 13);
             this.baudrate_label.TabIndex = 8;
@@ -235,15 +244,15 @@
             // 
             this.flowcontrolConfig.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.flowcontrolConfig.FormattingEnabled = true;
-            this.flowcontrolConfig.Location = new System.Drawing.Point(278, 91);
+            this.flowcontrolConfig.Location = new System.Drawing.Point(207, 78);
             this.flowcontrolConfig.Name = "flowcontrolConfig";
-            this.flowcontrolConfig.Size = new System.Drawing.Size(74, 21);
+            this.flowcontrolConfig.Size = new System.Drawing.Size(60, 21);
             this.flowcontrolConfig.TabIndex = 12;
             // 
             // parity_label
             // 
             this.parity_label.AutoSize = true;
-            this.parity_label.Location = new System.Drawing.Point(205, 66);
+            this.parity_label.Location = new System.Drawing.Point(137, 52);
             this.parity_label.Name = "parity_label";
             this.parity_label.Size = new System.Drawing.Size(33, 13);
             this.parity_label.TabIndex = 11;
@@ -252,7 +261,7 @@
             // port_label
             // 
             this.port_label.AutoSize = true;
-            this.port_label.Location = new System.Drawing.Point(28, 37);
+            this.port_label.Location = new System.Drawing.Point(7, 23);
             this.port_label.Name = "port_label";
             this.port_label.Size = new System.Drawing.Size(26, 13);
             this.port_label.TabIndex = 7;
@@ -261,7 +270,7 @@
             // stopbits_label
             // 
             this.stopbits_label.AutoSize = true;
-            this.stopbits_label.Location = new System.Drawing.Point(204, 37);
+            this.stopbits_label.Location = new System.Drawing.Point(136, 23);
             this.stopbits_label.Name = "stopbits_label";
             this.stopbits_label.Size = new System.Drawing.Size(48, 13);
             this.stopbits_label.TabIndex = 10;
@@ -270,7 +279,7 @@
             // databits_label
             // 
             this.databits_label.AutoSize = true;
-            this.databits_label.Location = new System.Drawing.Point(27, 95);
+            this.databits_label.Location = new System.Drawing.Point(6, 81);
             this.databits_label.Name = "databits_label";
             this.databits_label.Size = new System.Drawing.Size(49, 13);
             this.databits_label.TabIndex = 9;
@@ -282,10 +291,10 @@
             this.byte_counter_label,
             this.toolStripStatusLabel2,
             this.toolStripStatusLabel1});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 591);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 596);
             this.statusStrip1.MinimumSize = new System.Drawing.Size(569, 25);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(606, 25);
+            this.statusStrip1.Size = new System.Drawing.Size(613, 25);
             this.statusStrip1.TabIndex = 11;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -316,10 +325,10 @@
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Location = new System.Drawing.Point(14, 169);
+            this.tabControl1.Location = new System.Drawing.Point(14, 154);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(580, 413);
+            this.tabControl1.Size = new System.Drawing.Size(580, 438);
             this.tabControl1.SizeMode = System.Windows.Forms.TabSizeMode.FillToRight;
             this.tabControl1.TabIndex = 14;
             // 
@@ -331,7 +340,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(572, 387);
+            this.tabPage1.Size = new System.Drawing.Size(572, 412);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Read";
             // 
@@ -421,7 +430,7 @@
             this.tabPage3.Controls.Add(this.write_options_group);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(572, 387);
+            this.tabPage3.Size = new System.Drawing.Size(572, 412);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Write";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -636,7 +645,7 @@
             this.tabPage2.Controls.Add(this.graph);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Size = new System.Drawing.Size(572, 387);
+            this.tabPage2.Size = new System.Drawing.Size(572, 412);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Plotter";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -916,29 +925,40 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.checkBox_aperiodic);
             this.groupBox1.Controls.Add(this.datalogger_options_panel);
-            this.groupBox1.Location = new System.Drawing.Point(412, 20);
+            this.groupBox1.Location = new System.Drawing.Point(296, 38);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(176, 87);
+            this.groupBox1.Size = new System.Drawing.Size(152, 110);
             this.groupBox1.TabIndex = 27;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Data logger";
+            this.groupBox1.Text = "General";
+            // 
+            // checkBox_aperiodic
+            // 
+            this.checkBox_aperiodic.AutoSize = true;
+            this.checkBox_aperiodic.Location = new System.Drawing.Point(13, 82);
+            this.checkBox_aperiodic.Name = "checkBox_aperiodic";
+            this.checkBox_aperiodic.Size = new System.Drawing.Size(105, 17);
+            this.checkBox_aperiodic.TabIndex = 29;
+            this.checkBox_aperiodic.Text = "Aperiodic control";
+            this.checkBox_aperiodic.UseVisualStyleBackColor = true;
             // 
             // datalogger_options_panel
             // 
             this.datalogger_options_panel.Controls.Add(this.datalogger_overwrite_radiobutton);
             this.datalogger_options_panel.Controls.Add(this.datalogger_append_radiobutton);
             this.datalogger_options_panel.Controls.Add(this.datalogger_checkbox);
-            this.datalogger_options_panel.Location = new System.Drawing.Point(9, 25);
+            this.datalogger_options_panel.Location = new System.Drawing.Point(7, 20);
             this.datalogger_options_panel.Name = "datalogger_options_panel";
-            this.datalogger_options_panel.Size = new System.Drawing.Size(154, 54);
+            this.datalogger_options_panel.Size = new System.Drawing.Size(138, 54);
             this.datalogger_options_panel.TabIndex = 28;
             // 
             // datalogger_overwrite_radiobutton
             // 
             this.datalogger_overwrite_radiobutton.AutoSize = true;
             this.datalogger_overwrite_radiobutton.Enabled = false;
-            this.datalogger_overwrite_radiobutton.Location = new System.Drawing.Point(74, 30);
+            this.datalogger_overwrite_radiobutton.Location = new System.Drawing.Point(67, 30);
             this.datalogger_overwrite_radiobutton.Name = "datalogger_overwrite_radiobutton";
             this.datalogger_overwrite_radiobutton.Size = new System.Drawing.Size(70, 17);
             this.datalogger_overwrite_radiobutton.TabIndex = 29;
@@ -997,12 +1017,89 @@
             this.alert_messege.Text = "notifyIcon1";
             this.alert_messege.Visible = true;
             // 
+            // temperature_group
+            // 
+            this.temperature_group.Controls.Add(this.button1);
+            this.temperature_group.Controls.Add(this.numericUpDown3);
+            this.temperature_group.Controls.Add(this.label9);
+            this.temperature_group.Controls.Add(this.set_point);
+            this.temperature_group.Controls.Add(this.label8);
+            this.temperature_group.Location = new System.Drawing.Point(454, 38);
+            this.temperature_group.Name = "temperature_group";
+            this.temperature_group.Size = new System.Drawing.Size(136, 110);
+            this.temperature_group.TabIndex = 29;
+            this.temperature_group.TabStop = false;
+            this.temperature_group.Text = "Temperature";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(11, 76);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(113, 28);
+            this.button1.TabIndex = 4;
+            this.button1.Text = "Apply";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // numericUpDown3
+            // 
+            this.numericUpDown3.DecimalPlaces = 2;
+            this.numericUpDown3.Location = new System.Drawing.Point(63, 50);
+            this.numericUpDown3.Maximum = new decimal(new int[] {
+            200,
+            0,
+            0,
+            0});
+            this.numericUpDown3.Minimum = new decimal(new int[] {
+            50,
+            0,
+            0,
+            -2147483648});
+            this.numericUpDown3.Name = "numericUpDown3";
+            this.numericUpDown3.Size = new System.Drawing.Size(61, 20);
+            this.numericUpDown3.TabIndex = 3;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(8, 50);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(37, 13);
+            this.label9.TabIndex = 2;
+            this.label9.Text = "Temp.";
+            this.label9.Click += new System.EventHandler(this.label9_Click);
+            // 
+            // set_point
+            // 
+            this.set_point.FormattingEnabled = true;
+            this.set_point.Items.AddRange(new object[] {
+            "Sp1",
+            "Sp2",
+            "Sp3",
+            "Sp4",
+            "Sp5",
+            "Sp6"});
+            this.set_point.Location = new System.Drawing.Point(63, 19);
+            this.set_point.Name = "set_point";
+            this.set_point.Size = new System.Drawing.Size(61, 21);
+            this.set_point.TabIndex = 1;
+            this.set_point.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(8, 22);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(49, 13);
+            this.label8.TabIndex = 0;
+            this.label8.Text = "Set point";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
-            this.ClientSize = new System.Drawing.Size(606, 616);
+            this.ClientSize = new System.Drawing.Size(613, 621);
+            this.Controls.Add(this.temperature_group);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.connect);
             this.Controls.Add(this.tabControl1);
@@ -1044,8 +1141,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.graph)).EndInit();
             this.graph_menu.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.datalogger_options_panel.ResumeLayout(false);
             this.datalogger_options_panel.PerformLayout();
+            this.temperature_group.ResumeLayout(false);
+            this.temperature_group.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1124,6 +1225,13 @@
         private System.Windows.Forms.Panel tx_radiobuttons_panel;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip2;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
+        private System.Windows.Forms.GroupBox temperature_group;
+        private System.Windows.Forms.NumericUpDown numericUpDown3;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.ComboBox set_point;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.CheckBox checkBox_aperiodic;
+        private System.Windows.Forms.Button button1;
     }
 }
 
