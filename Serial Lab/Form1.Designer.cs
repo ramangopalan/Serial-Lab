@@ -115,6 +115,7 @@
             this.label9 = new System.Windows.Forms.Label();
             this.set_point = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
+            this.start_button = new System.Windows.Forms.Button();
             this.serial_options_group.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -145,7 +146,7 @@
             // 
             // connect
             // 
-            this.connect.Location = new System.Drawing.Point(454, 3);
+            this.connect.Location = new System.Drawing.Point(14, 4);
             this.connect.Name = "connect";
             this.connect.Size = new System.Drawing.Size(136, 31);
             this.connect.TabIndex = 0;
@@ -1094,12 +1095,23 @@
             this.label8.TabIndex = 0;
             this.label8.Text = "Set point";
             // 
+            // start_button
+            // 
+            this.start_button.Location = new System.Drawing.Point(156, 4);
+            this.start_button.Name = "start_button";
+            this.start_button.Size = new System.Drawing.Size(134, 31);
+            this.start_button.TabIndex = 30;
+            this.start_button.Text = "Start";
+            this.start_button.UseVisualStyleBackColor = true;
+            this.start_button.Click += new System.EventHandler(this.start_button_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
             this.ClientSize = new System.Drawing.Size(613, 621);
+            this.Controls.Add(this.start_button);
             this.Controls.Add(this.temperature_group);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.connect);
@@ -1233,6 +1245,7 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.CheckBox checkBox_aperiodic;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button start_button;
     }
 }
 

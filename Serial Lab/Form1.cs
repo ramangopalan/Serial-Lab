@@ -32,6 +32,7 @@ namespace Seriallab
         bool plotter_flag = false;
         System.IO.StreamWriter out_file;
         System.IO.StreamReader in_file;
+        bool mstart = false;
 
         public MainForm()
         {
@@ -56,6 +57,7 @@ namespace Seriallab
             openFileDialog1.Filter = "Text|*.txt";
             temperature_group.Enabled = false;
             checkBox_aperiodic.Enabled = false;
+            start_button.Enabled = false;
 
             mySerial.DataReceived += rx_data_event;
             tx_repeater_delay.Tick += new EventHandler(send_data);
@@ -497,6 +499,7 @@ namespace Seriallab
             write_options_group.Enabled = value;
             temperature_group.Enabled = value;
             checkBox_aperiodic.Enabled = value;
+            start_button.Enabled = value;
 
             if (value)
             {
@@ -582,6 +585,21 @@ namespace Seriallab
                 {
                     mySerial.Write("eval \"spsel(" + index.ToString() + ")\"\r\n");
                 });
+            }
+        }
+
+        private void start_button_Click(object sender, EventArgs e)
+        {
+            mstart = !mstart;
+            if (mstart)
+            {
+                start_button.Text = "Stop";
+                mySerial.Write("eval start\r\n");
+            }
+            else
+            {
+                start_button.Text = "Start";
+                mySerial.Write("eval stop\r\n");
             }
         }
     }
