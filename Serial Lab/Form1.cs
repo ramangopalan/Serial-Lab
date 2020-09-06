@@ -602,6 +602,12 @@ namespace Seriallab
                 mySerial.Write("eval stop\r\n");
             }
         }
+
+        private void checkBox_aperiodic_CheckedChanged(object sender, EventArgs e)
+        {
+            mySerial.Write(checkBox_aperiodic.Checked ? "eval \"strategy(1)\"\r\n" : "eval \"strategy(0)\"\r\n");
+
+        }
     }
   }
 

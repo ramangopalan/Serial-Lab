@@ -944,6 +944,7 @@
             this.checkBox_aperiodic.TabIndex = 29;
             this.checkBox_aperiodic.Text = "Aperiodic control";
             this.checkBox_aperiodic.UseVisualStyleBackColor = true;
+            this.checkBox_aperiodic.CheckedChanged += new System.EventHandler(this.checkBox_aperiodic_CheckedChanged);
             // 
             // datalogger_options_panel
             // 
