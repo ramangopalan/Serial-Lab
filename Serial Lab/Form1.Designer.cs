@@ -111,7 +111,7 @@
             this.alert_messege = new System.Windows.Forms.NotifyIcon(this.components);
             this.temperature_group = new System.Windows.Forms.GroupBox();
             this.button1 = new System.Windows.Forms.Button();
-            this.numericUpDown3 = new System.Windows.Forms.NumericUpDown();
+            this.temp_up_down = new System.Windows.Forms.NumericUpDown();
             this.label9 = new System.Windows.Forms.Label();
             this.set_point = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
@@ -140,7 +140,7 @@
             this.groupBox1.SuspendLayout();
             this.datalogger_options_panel.SuspendLayout();
             this.temperature_group.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.temp_up_down)).BeginInit();
             this.SuspendLayout();
             // 
             // connect
@@ -1020,7 +1020,7 @@
             // temperature_group
             // 
             this.temperature_group.Controls.Add(this.button1);
-            this.temperature_group.Controls.Add(this.numericUpDown3);
+            this.temperature_group.Controls.Add(this.temp_up_down);
             this.temperature_group.Controls.Add(this.label9);
             this.temperature_group.Controls.Add(this.set_point);
             this.temperature_group.Controls.Add(this.label8);
@@ -1039,24 +1039,25 @@
             this.button1.TabIndex = 4;
             this.button1.Text = "Apply";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // numericUpDown3
+            // temp_up_down
             // 
-            this.numericUpDown3.DecimalPlaces = 2;
-            this.numericUpDown3.Location = new System.Drawing.Point(63, 50);
-            this.numericUpDown3.Maximum = new decimal(new int[] {
+            this.temp_up_down.DecimalPlaces = 2;
+            this.temp_up_down.Location = new System.Drawing.Point(63, 50);
+            this.temp_up_down.Maximum = new decimal(new int[] {
             200,
             0,
             0,
             0});
-            this.numericUpDown3.Minimum = new decimal(new int[] {
+            this.temp_up_down.Minimum = new decimal(new int[] {
             50,
             0,
             0,
             -2147483648});
-            this.numericUpDown3.Name = "numericUpDown3";
-            this.numericUpDown3.Size = new System.Drawing.Size(61, 20);
-            this.numericUpDown3.TabIndex = 3;
+            this.temp_up_down.Name = "temp_up_down";
+            this.temp_up_down.Size = new System.Drawing.Size(61, 20);
+            this.temp_up_down.TabIndex = 3;
             // 
             // label9
             // 
@@ -1146,7 +1147,7 @@
             this.datalogger_options_panel.PerformLayout();
             this.temperature_group.ResumeLayout(false);
             this.temperature_group.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.temp_up_down)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1226,7 +1227,7 @@
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip2;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
         private System.Windows.Forms.GroupBox temperature_group;
-        private System.Windows.Forms.NumericUpDown numericUpDown3;
+        private System.Windows.Forms.NumericUpDown temp_up_down;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.ComboBox set_point;
         private System.Windows.Forms.Label label8;
