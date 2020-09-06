@@ -58,6 +58,7 @@ namespace Seriallab
             temperature_group.Enabled = false;
             checkBox_aperiodic.Enabled = false;
             start_button.Enabled = false;
+            //((Control)this.tabPage1).Enabled = false;
 
             mySerial.DataReceived += rx_data_event;
             tx_repeater_delay.Tick += new EventHandler(send_data);
@@ -142,7 +143,14 @@ namespace Seriallab
                     //Console.WriteLine(indata);
                     //if (nbytes == 0) return;
                     data = mySerial.ReadLine();
-                    data = data.Substring(3);
+                    if (data.Contains("->") && data.Contains("deg C"))
+                    {
+                        data = data.Substring(3, 7) + "\n";
+                    }
+                    else
+                    {
+                        data = "";
+                    }
 
                     if (datalogger_checkbox.Checked)
                     {
