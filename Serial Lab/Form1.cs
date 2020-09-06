@@ -79,7 +79,7 @@ namespace Seriallab
                     }
                     catch
                     {
-                        alert("Can't open " + mySerial.PortName + " port, it might be used in another program");
+                        alert("Can't open " + mySerial.PortName + " port! It might be used in another program");
                         return;
                     }
 
@@ -91,7 +91,7 @@ namespace Seriallab
                         }
                         catch
                         {
-                            alert("Can't open " + datalogger_checkbox.Text + " file, it might be used in another program");
+                            alert("Can't open " + datalogger_checkbox.Text + " file! It might be used in another program");
                             return;
                         }
                     }
@@ -144,7 +144,7 @@ namespace Seriallab
                     {
                         try
                         { out_file.Write(data.Replace("\\n", Environment.NewLine)); }
-                        catch { alert("Can't write to " + datalogger_checkbox.Text + " file it might be not exist or it is opennd in another program"); return; }
+                        catch { alert("Can't write to " + datalogger_checkbox.Text + " file! Either it doesn't exist or it is opened in another program"); return; }
                     }
 
                     this.BeginInvoke((Action)(() =>
@@ -179,7 +179,7 @@ namespace Seriallab
                         }
                     }));
                 }
-                catch { alert("Can't read form  " + mySerial.PortName + " port it might be opennd in another program"); }
+                catch { alert("Can't read from  " + mySerial.PortName + " port! It might be opened in another program"); }
             }
         }
 
@@ -328,7 +328,7 @@ namespace Seriallab
                     }
                     catch
                     {
-                        alert("Can't write to " + mySerial.PortName + " port it might be opennd in another program");
+                        alert("Can't write to " + mySerial.PortName + " port! It might be opened in another program");
                     }
                 }
             }
@@ -360,7 +360,7 @@ namespace Seriallab
                     tx_terminal.AppendText("[Transmit]: " + e.KeyChar.ToString() + "\n");
                     tx_textarea.Clear();
                 }
-                catch {alert("Can't write to "+mySerial.PortName+" port it might be opennd in another program"); }
+                catch {alert("Can't write to "+mySerial.PortName+" port! It might be opened in another program"); }
             }
         }
 
