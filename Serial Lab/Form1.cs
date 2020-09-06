@@ -54,6 +54,8 @@ namespace Seriallab
             stopbitsConfig.SelectedIndex = 0;
             flowcontrolConfig.SelectedIndex = 0;
             openFileDialog1.Filter = "Text|*.txt";
+            temperature_group.Enabled = false;
+            checkBox_aperiodic.Enabled = false;
 
             mySerial.DataReceived += rx_data_event;
             tx_repeater_delay.Tick += new EventHandler(send_data);
