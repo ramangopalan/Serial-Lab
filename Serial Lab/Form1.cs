@@ -493,6 +493,8 @@ namespace Seriallab
             serial_options_group.Enabled = !value;
             datalogger_options_panel.Enabled = !value;
             write_options_group.Enabled = value;
+            temperature_group.Enabled = value;
+            checkBox_aperiodic.Enabled = value;
 
             if (value)
             {
@@ -556,6 +558,16 @@ namespace Seriallab
         private void toolStripMenuItem1_Click(object sender, EventArgs e)
         {
             tx_terminal.Clear();
+        }
+
+        private void label9_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
   }
