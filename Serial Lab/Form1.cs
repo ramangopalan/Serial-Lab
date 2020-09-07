@@ -123,6 +123,7 @@ namespace Seriallab
                 try {in_file.Dispose();}
                 catch {/*ignore*/ }
 
+
                 UserControl_state(false);
             }
         }
@@ -156,7 +157,10 @@ namespace Seriallab
                     if (datalogger_checkbox.Checked)
                     {
                         try
-                        { out_file.Write(data.Replace("\\n", Environment.NewLine)); }
+                        {
+                            DateTime now = DateTime.Now;
+                            out_file.Write(now + ", " + data.Replace("\\n", Environment.NewLine)); 
+                        }
                         catch { alert("Can't write to " + datalogger_checkbox.Text + " file! Either it doesn't exist or it is opened in another program"); return; }
                     }
 
