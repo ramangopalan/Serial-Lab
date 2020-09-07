@@ -1,0 +1,7 @@
+
+# Thanks. Here is a reference for why the ignore file has these entries.
+# https://weblog.west-wind.com/posts/2018/Aug/07/Fixing-Visual-Studio-Intellisense-Errors#:~:text=the%20.vs%20folder-,The%20.,and%20a%20few%20other%20things.
+# 
+Serial\ Lab/bin/*
+Serial\ Lab/obj/*
+.vs/
