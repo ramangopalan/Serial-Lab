@@ -1119,7 +1119,7 @@
             // 
             // trigger_plot_ext
             // 
-            this.trigger_plot_ext.Location = new System.Drawing.Point(434, 4);
+            this.trigger_plot_ext.Location = new System.Drawing.Point(433, 4);
             this.trigger_plot_ext.Name = "trigger_plot_ext";
             this.trigger_plot_ext.Size = new System.Drawing.Size(135, 31);
             this.trigger_plot_ext.TabIndex = 32;
