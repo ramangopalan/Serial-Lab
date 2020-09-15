@@ -116,6 +116,7 @@
             this.set_point = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
             this.start_button = new System.Windows.Forms.Button();
+            this.trigger_plot = new System.Windows.Forms.Button();
             this.serial_options_group.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -295,7 +296,7 @@
             this.statusStrip1.Location = new System.Drawing.Point(0, 596);
             this.statusStrip1.MinimumSize = new System.Drawing.Size(569, 25);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(613, 25);
+            this.statusStrip1.Size = new System.Drawing.Size(624, 25);
             this.statusStrip1.TabIndex = 11;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -329,7 +330,7 @@
             this.tabControl1.Location = new System.Drawing.Point(14, 154);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(576, 438);
+            this.tabControl1.Size = new System.Drawing.Size(598, 438);
             this.tabControl1.SizeMode = System.Windows.Forms.TabSizeMode.FillToRight;
             this.tabControl1.TabIndex = 14;
             // 
@@ -341,7 +342,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(568, 412);
+            this.tabPage1.Size = new System.Drawing.Size(590, 412);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Read";
             // 
@@ -431,7 +432,7 @@
             this.tabPage3.Controls.Add(this.write_options_group);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(568, 412);
+            this.tabPage3.Size = new System.Drawing.Size(590, 412);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Write";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -646,7 +647,7 @@
             this.tabPage2.Controls.Add(this.graph);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Size = new System.Drawing.Size(568, 412);
+            this.tabPage2.Size = new System.Drawing.Size(590, 412);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Plotter";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -930,7 +931,7 @@
             this.groupBox1.Controls.Add(this.datalogger_options_panel);
             this.groupBox1.Location = new System.Drawing.Point(296, 38);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(152, 110);
+            this.groupBox1.Size = new System.Drawing.Size(176, 110);
             this.groupBox1.TabIndex = 27;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "General";
@@ -953,7 +954,7 @@
             this.datalogger_options_panel.Controls.Add(this.datalogger_checkbox);
             this.datalogger_options_panel.Location = new System.Drawing.Point(7, 20);
             this.datalogger_options_panel.Name = "datalogger_options_panel";
-            this.datalogger_options_panel.Size = new System.Drawing.Size(138, 54);
+            this.datalogger_options_panel.Size = new System.Drawing.Size(163, 54);
             this.datalogger_options_panel.TabIndex = 28;
             // 
             // datalogger_overwrite_radiobutton
@@ -1026,16 +1027,16 @@
             this.temperature_group.Controls.Add(this.label9);
             this.temperature_group.Controls.Add(this.set_point);
             this.temperature_group.Controls.Add(this.label8);
-            this.temperature_group.Location = new System.Drawing.Point(454, 38);
+            this.temperature_group.Location = new System.Drawing.Point(478, 38);
             this.temperature_group.Name = "temperature_group";
-            this.temperature_group.Size = new System.Drawing.Size(136, 110);
+            this.temperature_group.Size = new System.Drawing.Size(134, 110);
             this.temperature_group.TabIndex = 29;
             this.temperature_group.TabStop = false;
             this.temperature_group.Text = "Temperature";
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(11, 76);
+            this.button1.Location = new System.Drawing.Point(12, 76);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(113, 28);
             this.button1.TabIndex = 4;
@@ -1046,7 +1047,7 @@
             // temp_up_down
             // 
             this.temp_up_down.DecimalPlaces = 2;
-            this.temp_up_down.Location = new System.Drawing.Point(63, 50);
+            this.temp_up_down.Location = new System.Drawing.Point(64, 50);
             this.temp_up_down.Maximum = new decimal(new int[] {
             200,
             0,
@@ -1064,7 +1065,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(8, 50);
+            this.label9.Location = new System.Drawing.Point(9, 50);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(37, 13);
             this.label9.TabIndex = 2;
@@ -1081,7 +1082,7 @@
             "Sp4",
             "Sp5",
             "Sp6"});
-            this.set_point.Location = new System.Drawing.Point(63, 19);
+            this.set_point.Location = new System.Drawing.Point(64, 19);
             this.set_point.Name = "set_point";
             this.set_point.Size = new System.Drawing.Size(61, 21);
             this.set_point.TabIndex = 1;
@@ -1090,7 +1091,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(8, 22);
+            this.label8.Location = new System.Drawing.Point(9, 22);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(49, 13);
             this.label8.TabIndex = 0;
@@ -1106,12 +1107,22 @@
             this.start_button.UseVisualStyleBackColor = true;
             this.start_button.Click += new System.EventHandler(this.start_button_Click);
             // 
+            // trigger_plot
+            // 
+            this.trigger_plot.Location = new System.Drawing.Point(296, 4);
+            this.trigger_plot.Name = "trigger_plot";
+            this.trigger_plot.Size = new System.Drawing.Size(131, 31);
+            this.trigger_plot.TabIndex = 31;
+            this.trigger_plot.Text = "Trigger plot";
+            this.trigger_plot.UseVisualStyleBackColor = true;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
-            this.ClientSize = new System.Drawing.Size(613, 621);
+            this.ClientSize = new System.Drawing.Size(624, 621);
+            this.Controls.Add(this.trigger_plot);
             this.Controls.Add(this.start_button);
             this.Controls.Add(this.temperature_group);
             this.Controls.Add(this.groupBox1);
@@ -1247,6 +1258,7 @@
         private System.Windows.Forms.CheckBox checkBox_aperiodic;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button start_button;
+        private System.Windows.Forms.Button trigger_plot;
     }
 }
 
