@@ -144,9 +144,11 @@ namespace Seriallab
                     //Console.WriteLine(indata);
                     //if (nbytes == 0) return;
                     data = mySerial.ReadLine();
-                    if (data.Contains("->") && data.Contains("deg C"))
+                    if (data.Contains("->") && data.Contains("deg C") && data.Contains("Int") && data.Contains("Ext"))
                     {
-                        data = data.Substring(3, 7) + "\n";
+                        string data_1 = data.Substring(8, 8);
+                        string data_2 = data.Substring(30, 8);
+                        data = data_1 + ", " + data_2 + "\n";
                     }
                     else
                     {
@@ -620,6 +622,11 @@ namespace Seriallab
         {
             mySerial.Write(checkBox_aperiodic.Checked ? "eval \"strategy(1)\"\r\n" : "eval \"strategy(0)\"\r\n");
 
+        }
+
+        private void trigger_plot_Click(object sender, EventArgs e)
+        {
+            mySerial.Write("eval \"plot\"\r\n");
         }
     }
   }
