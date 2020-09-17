@@ -116,8 +116,7 @@
             this.set_point = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
             this.start_button = new System.Windows.Forms.Button();
-            this.trigger_plot_int = new System.Windows.Forms.Button();
-            this.trigger_plot_ext = new System.Windows.Forms.Button();
+            this.trigger_plot = new System.Windows.Forms.Button();
             this.serial_options_group.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -1108,23 +1107,15 @@
             this.start_button.UseVisualStyleBackColor = true;
             this.start_button.Click += new System.EventHandler(this.start_button_Click);
             // 
-            // trigger_plot_int
+            // trigger_plot
             // 
-            this.trigger_plot_int.Location = new System.Drawing.Point(296, 4);
-            this.trigger_plot_int.Name = "trigger_plot_int";
-            this.trigger_plot_int.Size = new System.Drawing.Size(131, 31);
-            this.trigger_plot_int.TabIndex = 31;
-            this.trigger_plot_int.Text = "Trigger Plot (Int.)";
-            this.trigger_plot_int.UseVisualStyleBackColor = true;
-            // 
-            // trigger_plot_ext
-            // 
-            this.trigger_plot_ext.Location = new System.Drawing.Point(433, 4);
-            this.trigger_plot_ext.Name = "trigger_plot_ext";
-            this.trigger_plot_ext.Size = new System.Drawing.Size(135, 31);
-            this.trigger_plot_ext.TabIndex = 32;
-            this.trigger_plot_ext.Text = "Trigger Plot (Ext.)";
-            this.trigger_plot_ext.UseVisualStyleBackColor = true;
+            this.trigger_plot.Location = new System.Drawing.Point(296, 4);
+            this.trigger_plot.Name = "trigger_plot";
+            this.trigger_plot.Size = new System.Drawing.Size(131, 31);
+            this.trigger_plot.TabIndex = 31;
+            this.trigger_plot.Text = "Trigger Plot";
+            this.trigger_plot.UseVisualStyleBackColor = true;
+            this.trigger_plot.Click += new System.EventHandler(this.trigger_plot_Click);
             // 
             // MainForm
             // 
@@ -1132,8 +1123,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
             this.ClientSize = new System.Drawing.Size(624, 621);
-            this.Controls.Add(this.trigger_plot_ext);
-            this.Controls.Add(this.trigger_plot_int);
+            this.Controls.Add(this.trigger_plot);
             this.Controls.Add(this.start_button);
             this.Controls.Add(this.temperature_group);
             this.Controls.Add(this.groupBox1);
@@ -1269,8 +1259,7 @@
         private System.Windows.Forms.CheckBox checkBox_aperiodic;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button start_button;
-        private System.Windows.Forms.Button trigger_plot_int;
-        private System.Windows.Forms.Button trigger_plot_ext;
+        private System.Windows.Forms.Button trigger_plot;
     }
 }
 
