@@ -152,16 +152,13 @@ namespace Seriallab
                         float d2 = float.Parse(data_2);
                         if (d1 < min_lim || d1 > max_lim)
                         {
-                            data = ", " + "" + data_2 + "\n";
+                            data_1 = "";
                         }
-                        else if (d2 < min_lim || d2 > max_lim)
+                        if (d2 < min_lim || d2 > max_lim)
                         {
-                            data = data_1 + ", " + "" + "\n";
+                            data_2 = "";
                         }
-                        else
-                        {
-                            data = data_1 + ", " + data_2 + "\n";
-                        }
+                        data = data_1 + ", " + data_2 + "\n";
                     }
                     else
                     {
