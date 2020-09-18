@@ -67,6 +67,13 @@ namespace Seriallab
             for (int i = 0; i < 5 && i < 5; i++)
                 graph.Series[i].Points.Add(0);
 
+            // Set series legend text.
+            graph.Series[0].LegendText = "Int. " + "\u00B0C";
+            graph.Series[1].LegendText = "Ext. " + "\u00B0C";
+            graph.Series[2].LegendText = "####";
+            graph.Series[3].LegendText = "####";
+            graph.Series[4].LegendText = "####";
+
         }
 
         /*connect and disconnect*/
