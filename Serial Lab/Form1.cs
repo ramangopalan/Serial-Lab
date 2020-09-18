@@ -20,7 +20,6 @@ using System.Windows.Forms.DataVisualization.Charting;
 using System.Timers;
 using System.IO;
 
-
 namespace Seriallab
 {
     public partial class MainForm : Form
@@ -133,6 +132,7 @@ namespace Seriallab
         /* read data from serial */
         private void rx_data_event(object sender, System.IO.Ports.SerialDataReceivedEventArgs e)
         {
+            float max_lim = 200, min_lim = -90;
             if (mySerial.IsOpen)
             {
                 try
@@ -146,9 +146,22 @@ namespace Seriallab
                     data = mySerial.ReadLine();
                     if (data.Contains("->") && data.Contains("deg C") && data.Contains("Int") && data.Contains("Ext"))
                     {
-                        string data_1 = data.Substring(8, 8);
-                        string data_2 = data.Substring(30, 8);
-                        data = data_1 + ", " + data_2 + "\n";
+                        string data_1 = data.Substring(data.IndexOf("Int:") + 4, 8);
+                        float d1 = float.Parse(data_1);
+                        string data_2 = data.Substring(data.IndexOf("Ext:") + 4, 8);
+                        float d2 = float.Parse(data_2);
+                        if (d1 < min_lim || d1 > max_lim)
+                        {
+                            data = ", " + "" + data_2 + "\n";
+                        }
+                        else if (d2 < min_lim || d2 > max_lim)
+                        {
+                            data = data_1 + ", " + "" + "\n";
+                        }
+                        else
+                        {
+                            data = data_1 + ", " + data_2 + "\n";
+                        }
                     }
                     else
                     {
