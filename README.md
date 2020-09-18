@@ -16,10 +16,11 @@
 ## Download  
 Available versions  
 [**Serial Lab Installer.msi**](https://github.com/ramangopalan/Serial-Lab/blob/master/Serial%20Lab%20Installer/Serial%20Lab%20Installer-SetupFiles/Serial%20Lab%20Installer.msi)
+
 ## Author 
 **Ahmed El-Sayed**  
 [**ahmed.m.elsayed93@gmail.com**](mailto:ahmed.m.elsayed93@gmail.com)
-**Modified by R**
+
 ## License
 Licensed under the **GNU GPLv3**  
 **Icon** is designed by [**Freepik**](www.freepik.com) from [**Flaticon**](www.flaticon.com)
