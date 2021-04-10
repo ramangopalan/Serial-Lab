@@ -3,6 +3,7 @@
     Licensed under the GNU GPLv3
     Author : Ahmed El-Sayed
     ahmed.m.elsayed93@gmail.com
+    Hacked by R, April, 2021.
  
 */
 
@@ -19,6 +20,7 @@ using System.IO.Ports;
 using System.Windows.Forms.DataVisualization.Charting;
 using System.Timers;
 using System.IO;
+using System.Threading;
 
 namespace Seriallab
 {
@@ -32,6 +34,7 @@ namespace Seriallab
         System.IO.StreamWriter out_file;
         System.IO.StreamReader in_file;
         bool mstart = false;
+        float power_percentage;
 
         public MainForm()
         {
@@ -150,12 +153,16 @@ namespace Seriallab
                     //Console.WriteLine(indata);
                     //if (nbytes == 0) return;
                     data = mySerial.ReadLine();
-                    if (data.Contains("->") && data.Contains("deg C") && data.Contains("Int") && data.Contains("Ext"))
+                    if (data.Contains("->") && data.Contains("deg C") && data.Contains("Int") && data.Contains("Ext") && data.Contains("Power (%)"))
                     {
                         string data_1 = data.Substring(data.IndexOf("Int:") + 4, 8);
                         float d1 = float.Parse(data_1);
                         string data_2 = data.Substring(data.IndexOf("Ext:") + 4, 8);
                         float d2 = float.Parse(data_2);
+                        string data_3 = data.Substring(data.IndexOf("Power (%)") + 10, 8);
+                        float d3 = float.Parse(data_3);
+                        power_percentage = d3;
+                        //power_percent.Text = d3.ToString();
                         if (d1 < min_lim || d1 > max_lim)
                         {
                             data_1 = "";
@@ -164,7 +171,11 @@ namespace Seriallab
                         {
                             data_2 = "";
                         }
-                        data = data_1 + ", " + data_2 + "\n";
+                        if (d3 < 0 || d3 > 100)
+                        {
+                            data_3 = "";
+                        }
+                        data = data_1 + ", " + data_2 + ", " + data_3 + "\n";
                     }
                     else
                     {
