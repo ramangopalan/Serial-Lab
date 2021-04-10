@@ -1003,9 +1003,9 @@
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(7, 103);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(124, 17);
+            this.label5.Size = new System.Drawing.Size(123, 17);
             this.label5.TabIndex = 30;
-            this.label5.Text = "Cooling power (W)";
+            this.label5.Text = "Cooling power (%)";
             this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // textBox1
