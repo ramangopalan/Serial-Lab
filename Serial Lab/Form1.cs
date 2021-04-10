@@ -203,7 +203,7 @@ namespace Seriallab
                         {
                             //if (display_hex_radiobutton.Checked)
                             //    data = BitConverter.ToString(dataRecevied);
-
+                            power_percent.Text = power_percentage.ToString();
                             backgroundWorker1.RunWorkerAsync();
                         }
 
