@@ -69,7 +69,7 @@ namespace Seriallab
             // Set series legend text.
             graph.Series[0].LegendText = "Int. " + "\u00B0C";
             graph.Series[1].LegendText = "Ext. " + "\u00B0C";
-            graph.Series[2].LegendText = "####";
+            graph.Series[2].LegendText = "Power (%)";
             graph.Series[3].LegendText = "####";
             graph.Series[4].LegendText = "####";
 
