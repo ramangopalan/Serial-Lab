@@ -198,12 +198,11 @@ namespace Seriallab
                         //data = System.Text.Encoding.Default.GetString(dataRecevied);
                         //data = mySerial.ReadLine();
                         //Console.WriteLine(data);
-
+                        power_percent.Text = power_percentage.ToString();
                         if (!plotter_flag && !backgroundWorker1.IsBusy)
                         {
                             //if (display_hex_radiobutton.Checked)
                             //    data = BitConverter.ToString(dataRecevied);
-                            power_percent.Text = power_percentage.ToString();
                             backgroundWorker1.RunWorkerAsync();
                         }
 
