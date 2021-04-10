@@ -55,7 +55,6 @@ namespace Seriallab
             flowcontrolConfig.SelectedIndex = 0;
             openFileDialog1.Filter = "Text|*.txt";
             temperature_group.Enabled = false;
-            checkBox_aperiodic.Enabled = false;
             start_button.Enabled = false;
             //((Control)this.tabPage1).Enabled = false;
 
@@ -530,7 +529,6 @@ namespace Seriallab
             datalogger_options_panel.Enabled = !value;
             write_options_group.Enabled = value;
             temperature_group.Enabled = value;
-            checkBox_aperiodic.Enabled = value;
             start_button.Enabled = value;
 
             if (value)
@@ -635,15 +633,14 @@ namespace Seriallab
             }
         }
 
-        private void checkBox_aperiodic_CheckedChanged(object sender, EventArgs e)
-        {
-            mySerial.Write(checkBox_aperiodic.Checked ? "eval \"strategy(1)\"\r\n" : "eval \"strategy(0)\"\r\n");
-
-        }
-
         private void trigger_plot_Click(object sender, EventArgs e)
         {
             mySerial.Write("eval \"plot\"\r\n");
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
         }
     }
   }
