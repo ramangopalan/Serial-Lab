@@ -100,7 +100,7 @@
             this.clearToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.power_percent = new System.Windows.Forms.TextBox();
             this.datalogger_options_panel = new System.Windows.Forms.Panel();
             this.datalogger_overwrite_radiobutton = new System.Windows.Forms.RadioButton();
             this.datalogger_append_radiobutton = new System.Windows.Forms.RadioButton();
@@ -713,7 +713,7 @@
             this.plotter_option_group.Margin = new System.Windows.Forms.Padding(4);
             this.plotter_option_group.Name = "plotter_option_group";
             this.plotter_option_group.Padding = new System.Windows.Forms.Padding(4);
-            this.plotter_option_group.Size = new System.Drawing.Size(711, 79);
+            this.plotter_option_group.Size = new System.Drawing.Size(722, 79);
             this.plotter_option_group.TabIndex = 25;
             this.plotter_option_group.TabStop = false;
             this.plotter_option_group.Text = "Plotter options";
@@ -724,7 +724,7 @@
             this.graph_max.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.graph_max.Enabled = false;
             this.graph_max.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.graph_max.Location = new System.Drawing.Point(113, 32);
+            this.graph_max.Location = new System.Drawing.Point(97, 35);
             this.graph_max.Margin = new System.Windows.Forms.Padding(4);
             this.graph_max.Maximum = new decimal(new int[] {
             100000,
@@ -750,7 +750,7 @@
             // set_graph_min_enable
             // 
             this.set_graph_min_enable.AutoSize = true;
-            this.set_graph_min_enable.Location = new System.Drawing.Point(211, 36);
+            this.set_graph_min_enable.Location = new System.Drawing.Point(206, 35);
             this.set_graph_min_enable.Margin = new System.Windows.Forms.Padding(4);
             this.set_graph_min_enable.Name = "set_graph_min_enable";
             this.set_graph_min_enable.Size = new System.Drawing.Size(81, 21);
@@ -765,7 +765,7 @@
             this.graph_min.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.graph_min.Enabled = false;
             this.graph_min.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.graph_min.Location = new System.Drawing.Point(297, 34);
+            this.graph_min.Location = new System.Drawing.Point(295, 35);
             this.graph_min.Margin = new System.Windows.Forms.Padding(4);
             this.graph_min.Maximum = new decimal(new int[] {
             100000,
@@ -791,7 +791,7 @@
             // set_graph_max_enable
             // 
             this.set_graph_max_enable.AutoSize = true;
-            this.set_graph_max_enable.Location = new System.Drawing.Point(28, 34);
+            this.set_graph_max_enable.Location = new System.Drawing.Point(8, 36);
             this.set_graph_max_enable.Margin = new System.Windows.Forms.Padding(4);
             this.set_graph_max_enable.Name = "set_graph_max_enable";
             this.set_graph_max_enable.Size = new System.Drawing.Size(84, 21);
@@ -810,7 +810,7 @@
             0,
             0,
             0});
-            this.graph_scale.Location = new System.Drawing.Point(451, 34);
+            this.graph_scale.Location = new System.Drawing.Point(457, 36);
             this.graph_scale.Margin = new System.Windows.Forms.Padding(4);
             this.graph_scale.Maximum = new decimal(new int[] {
             10000,
@@ -837,7 +837,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(388, 37);
+            this.label3.Location = new System.Drawing.Point(398, 36);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(61, 21);
@@ -850,7 +850,7 @@
             this.graph_speed.AutoSize = true;
             this.graph_speed.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.graph_speed.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.graph_speed.Location = new System.Drawing.Point(615, 36);
+            this.graph_speed.Location = new System.Drawing.Point(623, 36);
             this.graph_speed.Margin = new System.Windows.Forms.Padding(4);
             this.graph_speed.Maximum = new decimal(new int[] {
             10000,
@@ -877,7 +877,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(539, 37);
+            this.label7.Location = new System.Drawing.Point(550, 36);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(73, 21);
@@ -987,7 +987,7 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.power_percent);
             this.groupBox1.Controls.Add(this.datalogger_options_panel);
             this.groupBox1.Location = new System.Drawing.Point(395, 47);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
@@ -1008,12 +1008,15 @@
             this.label5.Text = "Cooling power (%)";
             this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
-            // textBox1
+            // power_percent
             // 
-            this.textBox1.Location = new System.Drawing.Point(137, 100);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(89, 22);
-            this.textBox1.TabIndex = 29;
+            this.power_percent.Location = new System.Drawing.Point(137, 100);
+            this.power_percent.Name = "power_percent";
+            this.power_percent.ReadOnly = true;
+            this.power_percent.Size = new System.Drawing.Size(89, 22);
+            this.power_percent.TabIndex = 29;
+            this.power_percent.Text = "0.00";
+            this.power_percent.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // datalogger_options_panel
             // 
@@ -1342,7 +1345,7 @@
         private System.Windows.Forms.Button start_button;
         private System.Windows.Forms.Button trigger_plot;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox power_percent;
     }
 }
 
