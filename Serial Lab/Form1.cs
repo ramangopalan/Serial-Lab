@@ -198,7 +198,8 @@ namespace Seriallab
                         //data = System.Text.Encoding.Default.GetString(dataRecevied);
                         //data = mySerial.ReadLine();
                         //Console.WriteLine(data);
-                        power_percent.Text = power_percentage.ToString();
+                        // Format to second decimal place.
+                        power_percent.Text = power_percentage.ToString("0.00");
                         if (!plotter_flag && !backgroundWorker1.IsBusy)
                         {
                             //if (display_hex_radiobutton.Checked)
