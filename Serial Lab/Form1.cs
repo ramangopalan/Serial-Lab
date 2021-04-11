@@ -198,8 +198,11 @@ namespace Seriallab
                         //data = System.Text.Encoding.Default.GetString(dataRecevied);
                         //data = mySerial.ReadLine();
                         //Console.WriteLine(data);
+                        ExponentialMovingAverageIndicator h = new ExponentialMovingAverageIndicator(100);
+                        h.AddDataPoint(power_percentage);
                         // Format to second decimal place.
-                        power_percent.Text = power_percentage.ToString("0.00");
+                        double val = h.Average * 15 * 1.414;
+                        power_percent.Text = val.ToString("0.00");
                         if (!plotter_flag && !backgroundWorker1.IsBusy)
                         {
                             //if (display_hex_radiobutton.Checked)
@@ -654,7 +657,41 @@ namespace Seriallab
 
         }
     }
-  }
+    public class ExponentialMovingAverageIndicator
+    {
+        private bool _isInitialized;
+        private readonly int _lookback;
+        private readonly double _weightingMultiplier;
+        private double _previousAverage;
+
+        public double Average { get; private set; }
+        public double Slope { get; private set; }
+
+        public ExponentialMovingAverageIndicator(int lookback)
+        {
+            _lookback = lookback;
+            _weightingMultiplier = 2.0 / (lookback + 1);
+        }
+
+        public void AddDataPoint(double dataPoint)
+        {
+            if (!_isInitialized)
+            {
+                Average = dataPoint;
+                Slope = 0;
+                _previousAverage = Average;
+                _isInitialized = true;
+                return;
+            }
+
+            Average = ((dataPoint - _previousAverage) * _weightingMultiplier) + _previousAverage;
+            Slope = Average - _previousAverage;
+
+            //update previous average
+            _previousAverage = Average;
+        }
+    }
+}
 
 
 
