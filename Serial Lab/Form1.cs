@@ -39,7 +39,7 @@ namespace Seriallab
         int grapher_status;
         double set_temperature;
         int mrunning; double heat_percent;
-        string ls1, ls2, ls3, lcons;
+        string ls1, ls2, ls3, lcons, lcons_;
 
         bool plot_triggered = false;
         bool mstart = false;
@@ -214,6 +214,7 @@ namespace Seriallab
                         if (ls2.Length > 0) lcons += ls2 + ",";
                         lcons += ls3; lcons += "\n";
                         //lcons = ls1.Length ? ls1 + "," :  + ls2 + "," + ls3 + "\n";
+                        lcons_ = split_string[0] + "," + split_string[1] + "," + split_string[10];
                     }
                     else
                     {
@@ -226,7 +227,7 @@ namespace Seriallab
                         try
                         {
                             DateTime now = DateTime.Now;
-                            out_file.Write(now + ", " + data.Replace("\\n", Environment.NewLine)); 
+                            out_file.Write(now + "," + /*data*/lcons_.Replace("\\n", Environment.NewLine));
                         }
                         catch { alert("Can't write to " + datalogger_checkbox.Text + " file! Either it doesn't exist or it is opened in another program"); return; }
                     }
@@ -241,8 +242,15 @@ namespace Seriallab
                         // Format to second decimal place.
                         //double val = h.Average * 15 * 1.414;
                         //power_percent.Text = val.ToString("0.00");
-                        int_temp.Text = internal_temperature.ToString();
-                        ext_temp.Text = external_temperature.ToString();
+                        //string degs = string.Format("{0}°C", degrees);
+                        if (internal_temperature > max_lim || internal_temperature < min_lim)
+                            int_temp.Text = string.Format("{0}  °C", "------");
+                        else
+                            int_temp.Text = string.Format("{0}  °C", internal_temperature.ToString());
+                        if (external_temperature > max_lim || external_temperature < min_lim)
+                            ext_temp.Text = string.Format("{0}  °C", "------");
+                        else
+                            ext_temp.Text = string.Format("{0}  °C", external_temperature.ToString());
                         power_percent.Text = heat_percent.ToString();
                         temp_up_down.Value = (decimal)set_temperature;
                         if (grapher_status == 1)
