@@ -70,19 +70,19 @@
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(269, 17);
             this.label4.TabIndex = 5;
-            this.label4.Text = "Icon is designed by Freepik from Flaticon.";
+            this.label4.Text = "Icon is designed by Freepik from Flaticon. Modified by R, April 2023.";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.ForeColor = System.Drawing.SystemColors.Control;
-            this.label3.Location = new System.Drawing.Point(237, 294);
+            this.label3.Location = new System.Drawing.Point(220, 294);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(211, 17);
             this.label3.TabIndex = 6;
-            this.label3.Text = "Modified by R, September 2020.";
+            this.label3.Text = "Thanks: Aalekh, Akshay, Kartik, Dr. Ambirajan";
             // 
             // AboutBox1
             // 

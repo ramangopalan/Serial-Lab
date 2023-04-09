@@ -650,7 +650,7 @@ namespace Seriallab
         {
             alert_messege.Icon = Icon;
             alert_messege.Visible = true;
-            alert_messege.ShowBalloonTip(5000, "Serial Lab", text, ToolTipIcon.Error);
+            alert_messege.ShowBalloonTip(5000, "Heat Transfer Lab", text, ToolTipIcon.Error);
         }
         /*about box*/
         private void toolStripStatusLabel2_Click(object sender, EventArgs e)

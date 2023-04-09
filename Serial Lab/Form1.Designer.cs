@@ -1302,7 +1302,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Serial Lab";
+            this.Text = "Heat Transfer Lab";
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.serial_options_group.ResumeLayout(false);
             this.serial_options_group.PerformLayout();
