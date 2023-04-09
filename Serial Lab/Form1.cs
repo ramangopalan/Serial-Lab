@@ -85,9 +85,9 @@ namespace Seriallab
                 graph.Series[i].Points.Add(0);
 
             // Set series legend text.
-            graph.Series[0].LegendText = "Int. " + "\u00B0C";
-            graph.Series[1].LegendText = "Ext. " + "\u00B0C";
-            graph.Series[2].LegendText = "Power (%)";
+            graph.Series[0].LegendText = "Internal " + "\u00B0C";
+            graph.Series[1].LegendText = "External " + "\u00B0C";
+            graph.Series[2].LegendText = "####";
             graph.Series[3].LegendText = "####";
             graph.Series[4].LegendText = "####";
 
@@ -283,7 +283,9 @@ namespace Seriallab
                             double number;
                             string[] variables = data.Split('\n')[0].Split(',');
                             //Console.WriteLine(variables);
-                            for (int i = 0; i < variables.Length && i < 5; i++)
+                            // R: Let's just plot the first 2 values. Thoughts about
+                            // power (and log(x)) on stack;
+                            for (int i = 0; i < variables.Length && i < 2; i++)
                             {
                                 if (double.TryParse(variables[i], out number))
                                 {
