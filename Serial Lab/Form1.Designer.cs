@@ -61,11 +61,14 @@
             this.rx_textarea = new System.Windows.Forms.RichTextBox();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.clearToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.label10 = new System.Windows.Forms.Label();
             this.read_options_group = new System.Windows.Forms.GroupBox();
             this.dsiplayas_options_panel = new System.Windows.Forms.Panel();
             this.display_hex_radiobutton = new System.Windows.Forms.RadioButton();
             this.display_string_radiobutton = new System.Windows.Forms.RadioButton();
             this.label4 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tx_terminal = new System.Windows.Forms.RichTextBox();
             this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
@@ -99,25 +102,29 @@
             this.saveAsImageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.clearToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.power_percent = new System.Windows.Forms.TextBox();
             this.datalogger_options_panel = new System.Windows.Forms.Panel();
             this.datalogger_overwrite_radiobutton = new System.Windows.Forms.RadioButton();
             this.datalogger_append_radiobutton = new System.Windows.Forms.RadioButton();
             this.datalogger_checkbox = new System.Windows.Forms.CheckBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.power_percent = new System.Windows.Forms.TextBox();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.tx_repeater_delay = new System.Windows.Forms.Timer(this.components);
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.alert_messege = new System.Windows.Forms.NotifyIcon(this.components);
             this.temperature_group = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.textBox2 = new System.Windows.Forms.TextBox();
             this.temp_up_down = new System.Windows.Forms.NumericUpDown();
             this.label9 = new System.Windows.Forms.Label();
-            this.set_point = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
             this.start_button = new System.Windows.Forms.Button();
             this.trigger_plot = new System.Windows.Forms.Button();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.serial_options_group.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -148,10 +155,10 @@
             // 
             // connect
             // 
-            this.connect.Location = new System.Drawing.Point(19, 5);
+            this.connect.Location = new System.Drawing.Point(19, 13);
             this.connect.Margin = new System.Windows.Forms.Padding(4);
             this.connect.Name = "connect";
-            this.connect.Size = new System.Drawing.Size(181, 38);
+            this.connect.Size = new System.Drawing.Size(133, 38);
             this.connect.TabIndex = 0;
             this.connect.Text = "Connect";
             this.connect.UseVisualStyleBackColor = true;
@@ -194,7 +201,7 @@
             this.stopbitsConfig.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.stopbitsConfig.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.stopbitsConfig.FormattingEnabled = true;
-            this.stopbitsConfig.Location = new System.Drawing.Point(276, 23);
+            this.stopbitsConfig.Location = new System.Drawing.Point(276, 25);
             this.stopbitsConfig.Margin = new System.Windows.Forms.Padding(4);
             this.stopbitsConfig.Name = "stopbitsConfig";
             this.stopbitsConfig.Size = new System.Drawing.Size(79, 24);
@@ -204,7 +211,7 @@
             // 
             this.parityConfig.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.parityConfig.FormattingEnabled = true;
-            this.parityConfig.Location = new System.Drawing.Point(276, 58);
+            this.parityConfig.Location = new System.Drawing.Point(276, 61);
             this.parityConfig.Margin = new System.Windows.Forms.Padding(4);
             this.parityConfig.Name = "parityConfig";
             this.parityConfig.Size = new System.Drawing.Size(79, 24);
@@ -224,11 +231,11 @@
             this.serial_options_group.Controls.Add(this.stopbits_label);
             this.serial_options_group.Controls.Add(this.databitsConfig);
             this.serial_options_group.Controls.Add(this.databits_label);
-            this.serial_options_group.Location = new System.Drawing.Point(19, 47);
+            this.serial_options_group.Location = new System.Drawing.Point(19, 63);
             this.serial_options_group.Margin = new System.Windows.Forms.Padding(4);
             this.serial_options_group.Name = "serial_options_group";
             this.serial_options_group.Padding = new System.Windows.Forms.Padding(4);
-            this.serial_options_group.Size = new System.Drawing.Size(368, 135);
+            this.serial_options_group.Size = new System.Drawing.Size(368, 160);
             this.serial_options_group.TabIndex = 9;
             this.serial_options_group.TabStop = false;
             this.serial_options_group.Text = "Serial port options";
@@ -239,9 +246,9 @@
             this.flowconrol_label.Location = new System.Drawing.Point(183, 98);
             this.flowconrol_label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.flowconrol_label.Name = "flowconrol_label";
-            this.flowconrol_label.Size = new System.Drawing.Size(83, 17);
+            this.flowconrol_label.Size = new System.Drawing.Size(87, 17);
             this.flowconrol_label.TabIndex = 13;
-            this.flowconrol_label.Text = "Flow control";
+            this.flowconrol_label.Text = "Flow control:";
             // 
             // baudrate_label
             // 
@@ -249,9 +256,9 @@
             this.baudrate_label.Location = new System.Drawing.Point(7, 64);
             this.baudrate_label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.baudrate_label.Name = "baudrate_label";
-            this.baudrate_label.Size = new System.Drawing.Size(66, 17);
+            this.baudrate_label.Size = new System.Drawing.Size(70, 17);
             this.baudrate_label.TabIndex = 8;
-            this.baudrate_label.Text = "Baudrate";
+            this.baudrate_label.Text = "Baudrate:";
             // 
             // flowcontrolConfig
             // 
@@ -269,9 +276,9 @@
             this.parity_label.Location = new System.Drawing.Point(183, 64);
             this.parity_label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.parity_label.Name = "parity_label";
-            this.parity_label.Size = new System.Drawing.Size(44, 17);
+            this.parity_label.Size = new System.Drawing.Size(48, 17);
             this.parity_label.TabIndex = 11;
-            this.parity_label.Text = "Parity";
+            this.parity_label.Text = "Parity:";
             // 
             // port_label
             // 
@@ -279,9 +286,9 @@
             this.port_label.Location = new System.Drawing.Point(9, 28);
             this.port_label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.port_label.Name = "port_label";
-            this.port_label.Size = new System.Drawing.Size(34, 17);
+            this.port_label.Size = new System.Drawing.Size(38, 17);
             this.port_label.TabIndex = 7;
-            this.port_label.Text = "Port";
+            this.port_label.Text = "Port:";
             // 
             // stopbits_label
             // 
@@ -289,9 +296,9 @@
             this.stopbits_label.Location = new System.Drawing.Point(181, 28);
             this.stopbits_label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.stopbits_label.Name = "stopbits_label";
-            this.stopbits_label.Size = new System.Drawing.Size(63, 17);
+            this.stopbits_label.Size = new System.Drawing.Size(67, 17);
             this.stopbits_label.TabIndex = 10;
-            this.stopbits_label.Text = "Stop bits";
+            this.stopbits_label.Text = "Stop bits:";
             // 
             // databits_label
             // 
@@ -299,9 +306,9 @@
             this.databits_label.Location = new System.Drawing.Point(8, 100);
             this.databits_label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.databits_label.Name = "databits_label";
-            this.databits_label.Size = new System.Drawing.Size(64, 17);
+            this.databits_label.Size = new System.Drawing.Size(68, 17);
             this.databits_label.TabIndex = 9;
-            this.databits_label.Text = "Data bits";
+            this.databits_label.Text = "Data bits:";
             // 
             // statusStrip1
             // 
@@ -345,11 +352,11 @@
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Location = new System.Drawing.Point(19, 190);
+            this.tabControl1.Location = new System.Drawing.Point(19, 231);
             this.tabControl1.Margin = new System.Windows.Forms.Padding(4);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(797, 539);
+            this.tabControl1.Size = new System.Drawing.Size(797, 498);
             this.tabControl1.SizeMode = System.Windows.Forms.TabSizeMode.FillToRight;
             this.tabControl1.TabIndex = 14;
             // 
@@ -357,12 +364,15 @@
             // 
             this.tabPage1.BackColor = System.Drawing.Color.White;
             this.tabPage1.Controls.Add(this.rx_textarea);
+            this.tabPage1.Controls.Add(this.label10);
             this.tabPage1.Controls.Add(this.read_options_group);
+            this.tabPage1.Controls.Add(this.textBox1);
+            this.tabPage1.Controls.Add(this.label6);
             this.tabPage1.Location = new System.Drawing.Point(4, 25);
             this.tabPage1.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(4);
-            this.tabPage1.Size = new System.Drawing.Size(789, 510);
+            this.tabPage1.Size = new System.Drawing.Size(789, 469);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Read";
             // 
@@ -381,6 +391,7 @@
             this.rx_textarea.Size = new System.Drawing.Size(711, 375);
             this.rx_textarea.TabIndex = 29;
             this.rx_textarea.Text = "";
+            this.rx_textarea.TextChanged += new System.EventHandler(this.rx_textarea_TextChanged);
             // 
             // contextMenuStrip1
             // 
@@ -396,6 +407,15 @@
             this.clearToolStripMenuItem.Size = new System.Drawing.Size(112, 24);
             this.clearToolStripMenuItem.Text = "Clear";
             this.clearToolStripMenuItem.Click += new System.EventHandler(this.clear_rx_textarea_Click);
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(547, 112);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(31, 17);
+            this.label10.TabIndex = 33;
+            this.label10.Text = "Ext.";
             // 
             // read_options_group
             // 
@@ -454,6 +474,25 @@
             this.label4.TabIndex = 25;
             this.label4.Text = "Display as:";
             // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(461, 112);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.ReadOnly = true;
+            this.textBox1.Size = new System.Drawing.Size(72, 22);
+            this.textBox1.TabIndex = 31;
+            this.textBox1.Text = "0.00";
+            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(430, 112);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(27, 17);
+            this.label6.TabIndex = 31;
+            this.label6.Text = "Int.";
+            // 
             // tabPage3
             // 
             this.tabPage3.Controls.Add(this.tx_terminal);
@@ -461,7 +500,7 @@
             this.tabPage3.Location = new System.Drawing.Point(4, 25);
             this.tabPage3.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(789, 510);
+            this.tabPage3.Size = new System.Drawing.Size(789, 464);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Write";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -694,7 +733,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 25);
             this.tabPage2.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Size = new System.Drawing.Size(789, 510);
+            this.tabPage2.Size = new System.Drawing.Size(789, 464);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Plotter";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -986,54 +1025,33 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.power_percent);
             this.groupBox1.Controls.Add(this.datalogger_options_panel);
-            this.groupBox1.Location = new System.Drawing.Point(395, 47);
+            this.groupBox1.Location = new System.Drawing.Point(395, 63);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox1.Size = new System.Drawing.Size(235, 135);
+            this.groupBox1.Size = new System.Drawing.Size(216, 160);
             this.groupBox1.TabIndex = 27;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "General";
             // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(7, 103);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(125, 17);
-            this.label5.TabIndex = 30;
-            this.label5.Text = "Heating power (%)";
-            this.label5.Click += new System.EventHandler(this.label5_Click);
-            // 
-            // power_percent
-            // 
-            this.power_percent.Location = new System.Drawing.Point(137, 100);
-            this.power_percent.Name = "power_percent";
-            this.power_percent.ReadOnly = true;
-            this.power_percent.Size = new System.Drawing.Size(89, 22);
-            this.power_percent.TabIndex = 29;
-            this.power_percent.Text = "0.00";
-            this.power_percent.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
             // datalogger_options_panel
             // 
+            this.datalogger_options_panel.Controls.Add(this.checkBox1);
             this.datalogger_options_panel.Controls.Add(this.datalogger_overwrite_radiobutton);
             this.datalogger_options_panel.Controls.Add(this.datalogger_append_radiobutton);
             this.datalogger_options_panel.Controls.Add(this.datalogger_checkbox);
             this.datalogger_options_panel.Location = new System.Drawing.Point(9, 25);
             this.datalogger_options_panel.Margin = new System.Windows.Forms.Padding(4);
             this.datalogger_options_panel.Name = "datalogger_options_panel";
-            this.datalogger_options_panel.Size = new System.Drawing.Size(217, 66);
+            this.datalogger_options_panel.Size = new System.Drawing.Size(197, 111);
             this.datalogger_options_panel.TabIndex = 28;
             // 
             // datalogger_overwrite_radiobutton
             // 
             this.datalogger_overwrite_radiobutton.AutoSize = true;
             this.datalogger_overwrite_radiobutton.Enabled = false;
-            this.datalogger_overwrite_radiobutton.Location = new System.Drawing.Point(89, 37);
+            this.datalogger_overwrite_radiobutton.Location = new System.Drawing.Point(90, 38);
             this.datalogger_overwrite_radiobutton.Margin = new System.Windows.Forms.Padding(4);
             this.datalogger_overwrite_radiobutton.Name = "datalogger_overwrite_radiobutton";
             this.datalogger_overwrite_radiobutton.Size = new System.Drawing.Size(89, 21);
@@ -1046,7 +1064,7 @@
             this.datalogger_append_radiobutton.AutoSize = true;
             this.datalogger_append_radiobutton.Checked = true;
             this.datalogger_append_radiobutton.Enabled = false;
-            this.datalogger_append_radiobutton.Location = new System.Drawing.Point(8, 37);
+            this.datalogger_append_radiobutton.Location = new System.Drawing.Point(4, 37);
             this.datalogger_append_radiobutton.Margin = new System.Windows.Forms.Padding(4);
             this.datalogger_append_radiobutton.Name = "datalogger_append_radiobutton";
             this.datalogger_append_radiobutton.Size = new System.Drawing.Size(78, 21);
@@ -1062,16 +1080,36 @@
             this.datalogger_checkbox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.datalogger_checkbox.Cursor = System.Windows.Forms.Cursors.Default;
             this.datalogger_checkbox.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.datalogger_checkbox.Location = new System.Drawing.Point(8, 4);
+            this.datalogger_checkbox.Location = new System.Drawing.Point(4, 4);
             this.datalogger_checkbox.Margin = new System.Windows.Forms.Padding(4);
             this.datalogger_checkbox.MaximumSize = new System.Drawing.Size(533, 23);
             this.datalogger_checkbox.Name = "datalogger_checkbox";
-            this.datalogger_checkbox.Size = new System.Drawing.Size(160, 23);
+            this.datalogger_checkbox.Size = new System.Drawing.Size(158, 23);
             this.datalogger_checkbox.TabIndex = 15;
-            this.datalogger_checkbox.Text = "Enable Data logger";
+            this.datalogger_checkbox.Text = "Enable data logger";
             this.datalogger_checkbox.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.datalogger_checkbox.UseVisualStyleBackColor = false;
             this.datalogger_checkbox.CheckedChanged += new System.EventHandler(this.datalogger_checkbox_CheckedChanged);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(8, 58);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(68, 17);
+            this.label5.TabIndex = 30;
+            this.label5.Text = "Heat (%):";
+            this.label5.Click += new System.EventHandler(this.label5_Click);
+            // 
+            // power_percent
+            // 
+            this.power_percent.Location = new System.Drawing.Point(81, 55);
+            this.power_percent.Name = "power_percent";
+            this.power_percent.ReadOnly = true;
+            this.power_percent.Size = new System.Drawing.Size(98, 22);
+            this.power_percent.TabIndex = 29;
+            this.power_percent.Text = "0.00";
+            this.power_percent.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // openFileDialog1
             // 
@@ -1097,35 +1135,75 @@
             // 
             // temperature_group
             // 
-            this.temperature_group.Controls.Add(this.button1);
-            this.temperature_group.Controls.Add(this.temp_up_down);
-            this.temperature_group.Controls.Add(this.label9);
-            this.temperature_group.Controls.Add(this.set_point);
+            this.temperature_group.Controls.Add(this.textBox4);
+            this.temperature_group.Controls.Add(this.label12);
+            this.temperature_group.Controls.Add(this.textBox3);
+            this.temperature_group.Controls.Add(this.label11);
+            this.temperature_group.Controls.Add(this.power_percent);
+            this.temperature_group.Controls.Add(this.label5);
+            this.temperature_group.Controls.Add(this.textBox2);
             this.temperature_group.Controls.Add(this.label8);
-            this.temperature_group.Location = new System.Drawing.Point(637, 47);
+            this.temperature_group.Location = new System.Drawing.Point(619, 63);
             this.temperature_group.Margin = new System.Windows.Forms.Padding(4);
             this.temperature_group.Name = "temperature_group";
             this.temperature_group.Padding = new System.Windows.Forms.Padding(4);
-            this.temperature_group.Size = new System.Drawing.Size(179, 135);
+            this.temperature_group.Size = new System.Drawing.Size(197, 160);
             this.temperature_group.TabIndex = 29;
             this.temperature_group.TabStop = false;
-            this.temperature_group.Text = "Temperature";
+            this.temperature_group.Text = "Data";
             // 
-            // button1
+            // textBox4
             // 
-            this.button1.Location = new System.Drawing.Point(16, 94);
-            this.button1.Margin = new System.Windows.Forms.Padding(4);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(151, 34);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "Apply";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.textBox4.Location = new System.Drawing.Point(81, 116);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.ReadOnly = true;
+            this.textBox4.Size = new System.Drawing.Size(98, 22);
+            this.textBox4.TabIndex = 35;
+            this.textBox4.Text = "0.00";
+            this.textBox4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(8, 119);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(63, 17);
+            this.label12.TabIndex = 34;
+            this.label12.Text = "External:";
+            // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(81, 85);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.ReadOnly = true;
+            this.textBox3.Size = new System.Drawing.Size(98, 22);
+            this.textBox3.TabIndex = 33;
+            this.textBox3.Text = "0.00";
+            this.textBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(8, 88);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(59, 17);
+            this.label11.TabIndex = 32;
+            this.label11.Text = "Internal:";
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(81, 24);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.ReadOnly = true;
+            this.textBox2.Size = new System.Drawing.Size(98, 22);
+            this.textBox2.TabIndex = 31;
+            this.textBox2.Text = "Sp1";
+            this.textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // temp_up_down
             // 
             this.temp_up_down.DecimalPlaces = 2;
-            this.temp_up_down.Location = new System.Drawing.Point(85, 62);
+            this.temp_up_down.Location = new System.Drawing.Point(303, 22);
             this.temp_up_down.Margin = new System.Windows.Forms.Padding(4);
             this.temp_up_down.Maximum = new decimal(new int[] {
             200,
@@ -1138,68 +1216,69 @@
             0,
             -2147483648});
             this.temp_up_down.Name = "temp_up_down";
-            this.temp_up_down.Size = new System.Drawing.Size(81, 22);
+            this.temp_up_down.Size = new System.Drawing.Size(108, 22);
             this.temp_up_down.TabIndex = 3;
+            this.temp_up_down.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(12, 62);
+            this.label9.Location = new System.Drawing.Point(227, 24);
             this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(48, 17);
+            this.label9.Size = new System.Drawing.Size(68, 17);
             this.label9.TabIndex = 2;
-            this.label9.Text = "Temp.";
+            this.label9.Text = "Set point:";
             this.label9.Click += new System.EventHandler(this.label9_Click);
-            // 
-            // set_point
-            // 
-            this.set_point.FormattingEnabled = true;
-            this.set_point.Items.AddRange(new object[] {
-            "Sp1",
-            "Sp2",
-            "Sp3",
-            "Sp4",
-            "Sp5",
-            "Sp6"});
-            this.set_point.Location = new System.Drawing.Point(85, 23);
-            this.set_point.Margin = new System.Windows.Forms.Padding(4);
-            this.set_point.Name = "set_point";
-            this.set_point.Size = new System.Drawing.Size(80, 24);
-            this.set_point.TabIndex = 1;
-            this.set_point.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(12, 27);
+            this.label8.Location = new System.Drawing.Point(8, 27);
             this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(64, 17);
+            this.label8.Size = new System.Drawing.Size(45, 17);
             this.label8.TabIndex = 0;
-            this.label8.Text = "Set point";
+            this.label8.Text = "Index:";
             // 
             // start_button
             // 
-            this.start_button.Location = new System.Drawing.Point(208, 5);
+            this.start_button.Location = new System.Drawing.Point(696, 13);
             this.start_button.Margin = new System.Windows.Forms.Padding(4);
             this.start_button.Name = "start_button";
-            this.start_button.Size = new System.Drawing.Size(179, 38);
+            this.start_button.Size = new System.Drawing.Size(116, 38);
             this.start_button.TabIndex = 30;
-            this.start_button.Text = "Start";
+            this.start_button.Text = "Thermo Start";
             this.start_button.UseVisualStyleBackColor = true;
             this.start_button.Click += new System.EventHandler(this.start_button_Click);
             // 
             // trigger_plot
             // 
-            this.trigger_plot.Location = new System.Drawing.Point(395, 5);
+            this.trigger_plot.Location = new System.Drawing.Point(428, 13);
             this.trigger_plot.Margin = new System.Windows.Forms.Padding(4);
             this.trigger_plot.Name = "trigger_plot";
-            this.trigger_plot.Size = new System.Drawing.Size(175, 38);
+            this.trigger_plot.Size = new System.Drawing.Size(117, 38);
             this.trigger_plot.TabIndex = 31;
-            this.trigger_plot.Text = "Trigger Plot";
+            this.trigger_plot.Text = "Apply";
             this.trigger_plot.UseVisualStyleBackColor = true;
             this.trigger_plot.Click += new System.EventHandler(this.trigger_plot_Click);
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.BackColor = System.Drawing.Color.Transparent;
+            this.checkBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.checkBox1.Cursor = System.Windows.Forms.Cursors.Default;
+            this.checkBox1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBox1.Location = new System.Drawing.Point(4, 70);
+            this.checkBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.checkBox1.MaximumSize = new System.Drawing.Size(533, 23);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(170, 23);
+            this.checkBox1.TabIndex = 30;
+            this.checkBox1.Text = "Trigger graph plotter";
+            this.checkBox1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.checkBox1.UseVisualStyleBackColor = false;
             // 
             // MainForm
             // 
@@ -1211,7 +1290,9 @@
             this.Controls.Add(this.start_button);
             this.Controls.Add(this.temperature_group);
             this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.temp_up_down);
             this.Controls.Add(this.connect);
+            this.Controls.Add(this.label9);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.serial_options_group);
@@ -1221,12 +1302,14 @@
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Serial Lab";
+            this.Load += new System.EventHandler(this.MainForm_Load);
             this.serial_options_group.ResumeLayout(false);
             this.serial_options_group.PerformLayout();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
+            this.tabPage1.PerformLayout();
             this.contextMenuStrip1.ResumeLayout(false);
             this.read_options_group.ResumeLayout(false);
             this.read_options_group.PerformLayout();
@@ -1252,7 +1335,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.graph)).EndInit();
             this.graph_menu.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
             this.datalogger_options_panel.ResumeLayout(false);
             this.datalogger_options_panel.PerformLayout();
             this.temperature_group.ResumeLayout(false);
@@ -1339,13 +1421,20 @@
         private System.Windows.Forms.GroupBox temperature_group;
         private System.Windows.Forms.NumericUpDown temp_up_down;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.ComboBox set_point;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button start_button;
         private System.Windows.Forms.Button trigger_plot;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox power_percent;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.CheckBox checkBox1;
     }
 }
 

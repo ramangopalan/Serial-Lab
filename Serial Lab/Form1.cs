@@ -35,6 +35,7 @@ namespace Seriallab
         System.IO.StreamReader in_file;
         bool mstart = false;
         float power_percentage;
+        bool plot_triggered = false;
 
         public MainForm()
         {
@@ -153,13 +154,22 @@ namespace Seriallab
                     //Console.WriteLine(indata);
                     //if (nbytes == 0) return;
                     data = mySerial.ReadLine();
-                    if (data.Contains("->") && data.Contains("deg C") && data.Contains("Int") && data.Contains("Ext") && data.Contains("Power (%)"))
+                    string[] split_string = data.Split(',');
+                    if (split_string.Length == 8)
                     {
-                        string data_1 = data.Substring(data.IndexOf("Int:") + 4, 8);
+                        //if (data.Contains("->") && data.Contains("deg C") && data.Contains("Int") && data.Contains("Ext") && data.Contains("Power (%)"))
+                        //{
+                        //string data_1 = data.Substring(data.IndexOf("Int:") + 4, 8);
+                        //float d1 = float.Parse(data_1);
+                        string data_1 = split_string[0];
                         float d1 = float.Parse(data_1);
-                        string data_2 = data.Substring(data.IndexOf("Ext:") + 4, 8);
+                        //string data_2 = data.Substring(data.IndexOf("Ext:") + 4, 8);
+                        //float d2 = float.Parse(data_2);
+                        string data_2 = split_string[1];
                         float d2 = float.Parse(data_2);
-                        string data_3 = data.Substring(data.IndexOf("Power (%)") + 10, 8);
+                        //string data_3 = data.Substring(data.IndexOf("Power (%)") + 10, 8);
+                        //float d3 = float.Parse(data_3);
+                        string data_3 = split_string[7];
                         float d3 = float.Parse(data_3);
                         power_percentage = d3;
                         //power_percent.Text = d3.ToString();
@@ -621,7 +631,7 @@ namespace Seriallab
 
         private void button1_Click(object sender, EventArgs e)
         {
-            int index = set_point.SelectedIndex + 1;
+            int index = 0;// = set_point.SelectedIndex + 1;
             if (index != 0)
             {
                 mySerial.Write("eval \"temp(" + index.ToString() + "," + temp_up_down.Value.ToString() + ")\"\r\n");
@@ -649,10 +659,29 @@ namespace Seriallab
 
         private void trigger_plot_Click(object sender, EventArgs e)
         {
-            mySerial.Write("eval \"plot\"\r\n");
+            plot_triggered = !plot_triggered;
+            if (plot_triggered)
+                mySerial.Write("SET GRAPH 1\r\n");
+            else
+                mySerial.Write("SET GRAPH 0\r\n");
         }
 
         private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void rx_textarea_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label11_Click(object sender, EventArgs e)
         {
 
         }
