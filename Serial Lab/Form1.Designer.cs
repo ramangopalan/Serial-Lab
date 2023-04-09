@@ -103,6 +103,7 @@
             this.clearToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.datalogger_options_panel = new System.Windows.Forms.Panel();
+            this.graph_trigger = new System.Windows.Forms.CheckBox();
             this.datalogger_overwrite_radiobutton = new System.Windows.Forms.RadioButton();
             this.datalogger_append_radiobutton = new System.Windows.Forms.RadioButton();
             this.datalogger_checkbox = new System.Windows.Forms.CheckBox();
@@ -114,17 +115,16 @@
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.alert_messege = new System.Windows.Forms.NotifyIcon(this.components);
             this.temperature_group = new System.Windows.Forms.GroupBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.ext_temp = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.int_temp = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.temp_up_down = new System.Windows.Forms.NumericUpDown();
             this.label9 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
             this.start_button = new System.Windows.Forms.Button();
-            this.trigger_plot = new System.Windows.Forms.Button();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.set_temperature_apply = new System.Windows.Forms.Button();
             this.serial_options_group.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -500,7 +500,7 @@
             this.tabPage3.Location = new System.Drawing.Point(4, 25);
             this.tabPage3.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(789, 464);
+            this.tabPage3.Size = new System.Drawing.Size(789, 469);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Write";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -733,7 +733,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 25);
             this.tabPage2.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Size = new System.Drawing.Size(789, 464);
+            this.tabPage2.Size = new System.Drawing.Size(789, 469);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Plotter";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -1037,7 +1037,7 @@
             // 
             // datalogger_options_panel
             // 
-            this.datalogger_options_panel.Controls.Add(this.checkBox1);
+            this.datalogger_options_panel.Controls.Add(this.graph_trigger);
             this.datalogger_options_panel.Controls.Add(this.datalogger_overwrite_radiobutton);
             this.datalogger_options_panel.Controls.Add(this.datalogger_append_radiobutton);
             this.datalogger_options_panel.Controls.Add(this.datalogger_checkbox);
@@ -1046,6 +1046,24 @@
             this.datalogger_options_panel.Name = "datalogger_options_panel";
             this.datalogger_options_panel.Size = new System.Drawing.Size(197, 111);
             this.datalogger_options_panel.TabIndex = 28;
+            // 
+            // graph_trigger
+            // 
+            this.graph_trigger.AutoSize = true;
+            this.graph_trigger.BackColor = System.Drawing.Color.Transparent;
+            this.graph_trigger.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.graph_trigger.Cursor = System.Windows.Forms.Cursors.Default;
+            this.graph_trigger.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.graph_trigger.Location = new System.Drawing.Point(4, 70);
+            this.graph_trigger.Margin = new System.Windows.Forms.Padding(4);
+            this.graph_trigger.MaximumSize = new System.Drawing.Size(533, 23);
+            this.graph_trigger.Name = "graph_trigger";
+            this.graph_trigger.Size = new System.Drawing.Size(170, 23);
+            this.graph_trigger.TabIndex = 30;
+            this.graph_trigger.Text = "Trigger graph plotter";
+            this.graph_trigger.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.graph_trigger.UseVisualStyleBackColor = false;
+            this.graph_trigger.CheckedChanged += new System.EventHandler(this.graph_trigger_CheckedChanged);
             // 
             // datalogger_overwrite_radiobutton
             // 
@@ -1135,9 +1153,9 @@
             // 
             // temperature_group
             // 
-            this.temperature_group.Controls.Add(this.textBox4);
+            this.temperature_group.Controls.Add(this.ext_temp);
             this.temperature_group.Controls.Add(this.label12);
-            this.temperature_group.Controls.Add(this.textBox3);
+            this.temperature_group.Controls.Add(this.int_temp);
             this.temperature_group.Controls.Add(this.label11);
             this.temperature_group.Controls.Add(this.power_percent);
             this.temperature_group.Controls.Add(this.label5);
@@ -1152,15 +1170,15 @@
             this.temperature_group.TabStop = false;
             this.temperature_group.Text = "Data";
             // 
-            // textBox4
+            // ext_temp
             // 
-            this.textBox4.Location = new System.Drawing.Point(81, 116);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.ReadOnly = true;
-            this.textBox4.Size = new System.Drawing.Size(98, 22);
-            this.textBox4.TabIndex = 35;
-            this.textBox4.Text = "0.00";
-            this.textBox4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.ext_temp.Location = new System.Drawing.Point(81, 116);
+            this.ext_temp.Name = "ext_temp";
+            this.ext_temp.ReadOnly = true;
+            this.ext_temp.Size = new System.Drawing.Size(98, 22);
+            this.ext_temp.TabIndex = 35;
+            this.ext_temp.Text = "0.00";
+            this.ext_temp.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label12
             // 
@@ -1171,15 +1189,15 @@
             this.label12.TabIndex = 34;
             this.label12.Text = "External:";
             // 
-            // textBox3
+            // int_temp
             // 
-            this.textBox3.Location = new System.Drawing.Point(81, 85);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.ReadOnly = true;
-            this.textBox3.Size = new System.Drawing.Size(98, 22);
-            this.textBox3.TabIndex = 33;
-            this.textBox3.Text = "0.00";
-            this.textBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.int_temp.Location = new System.Drawing.Point(81, 85);
+            this.int_temp.Name = "int_temp";
+            this.int_temp.ReadOnly = true;
+            this.int_temp.Size = new System.Drawing.Size(98, 22);
+            this.int_temp.TabIndex = 33;
+            this.int_temp.Text = "0.00";
+            this.int_temp.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label11
             // 
@@ -1199,6 +1217,16 @@
             this.textBox2.TabIndex = 31;
             this.textBox2.Text = "Sp1";
             this.textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(8, 27);
+            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(45, 17);
+            this.label8.TabIndex = 0;
+            this.label8.Text = "Index:";
             // 
             // temp_up_down
             // 
@@ -1231,16 +1259,6 @@
             this.label9.Text = "Set point:";
             this.label9.Click += new System.EventHandler(this.label9_Click);
             // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(8, 27);
-            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(45, 17);
-            this.label8.TabIndex = 0;
-            this.label8.Text = "Index:";
-            // 
             // start_button
             // 
             this.start_button.Location = new System.Drawing.Point(696, 13);
@@ -1252,33 +1270,16 @@
             this.start_button.UseVisualStyleBackColor = true;
             this.start_button.Click += new System.EventHandler(this.start_button_Click);
             // 
-            // trigger_plot
+            // set_temperature_apply
             // 
-            this.trigger_plot.Location = new System.Drawing.Point(428, 13);
-            this.trigger_plot.Margin = new System.Windows.Forms.Padding(4);
-            this.trigger_plot.Name = "trigger_plot";
-            this.trigger_plot.Size = new System.Drawing.Size(117, 38);
-            this.trigger_plot.TabIndex = 31;
-            this.trigger_plot.Text = "Apply";
-            this.trigger_plot.UseVisualStyleBackColor = true;
-            this.trigger_plot.Click += new System.EventHandler(this.trigger_plot_Click);
-            // 
-            // checkBox1
-            // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.BackColor = System.Drawing.Color.Transparent;
-            this.checkBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.checkBox1.Cursor = System.Windows.Forms.Cursors.Default;
-            this.checkBox1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox1.Location = new System.Drawing.Point(4, 70);
-            this.checkBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.checkBox1.MaximumSize = new System.Drawing.Size(533, 23);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(170, 23);
-            this.checkBox1.TabIndex = 30;
-            this.checkBox1.Text = "Trigger graph plotter";
-            this.checkBox1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.checkBox1.UseVisualStyleBackColor = false;
+            this.set_temperature_apply.Location = new System.Drawing.Point(428, 13);
+            this.set_temperature_apply.Margin = new System.Windows.Forms.Padding(4);
+            this.set_temperature_apply.Name = "set_temperature_apply";
+            this.set_temperature_apply.Size = new System.Drawing.Size(117, 38);
+            this.set_temperature_apply.TabIndex = 31;
+            this.set_temperature_apply.Text = "Apply";
+            this.set_temperature_apply.UseVisualStyleBackColor = true;
+            this.set_temperature_apply.Click += new System.EventHandler(this.apply_Click);
             // 
             // MainForm
             // 
@@ -1286,7 +1287,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
             this.ClientSize = new System.Drawing.Size(832, 764);
-            this.Controls.Add(this.trigger_plot);
+            this.Controls.Add(this.set_temperature_apply);
             this.Controls.Add(this.start_button);
             this.Controls.Add(this.temperature_group);
             this.Controls.Add(this.groupBox1);
@@ -1423,18 +1424,18 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button start_button;
-        private System.Windows.Forms.Button trigger_plot;
+        private System.Windows.Forms.Button set_temperature_apply;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox power_percent;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox ext_temp;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox int_temp;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.CheckBox graph_trigger;
     }
 }
 

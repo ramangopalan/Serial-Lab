@@ -33,9 +33,20 @@ namespace Seriallab
         bool plotter_flag = false;
         System.IO.StreamWriter out_file;
         System.IO.StreamReader in_file;
-        bool mstart = false;
-        float power_percentage;
+
+        double internal_temperature, external_temperature;
+        double cp, ci, cd, cu, co;
+        int grapher_status;
+        double set_temperature;
+        int mrunning; double heat_percent;
+        string ls1, ls2, ls3, lcons;
+
         bool plot_triggered = false;
+        bool mstart = false;
+        //float power_percentage;
+        
+
+
 
         public MainForm()
         {
@@ -60,6 +71,9 @@ namespace Seriallab
             openFileDialog1.Filter = "Text|*.txt";
             temperature_group.Enabled = false;
             start_button.Enabled = false;
+            graph_trigger.Enabled = false;
+            temp_up_down.Enabled = false;
+            set_temperature_apply.Enabled = false;
             //((Control)this.tabPage1).Enabled = false;
 
             mySerial.DataReceived += rx_data_event;
@@ -155,37 +169,51 @@ namespace Seriallab
                     //if (nbytes == 0) return;
                     data = mySerial.ReadLine();
                     string[] split_string = data.Split(',');
-                    if (split_string.Length == 8)
+                    if (split_string.Length > 1)
                     {
+                        internal_temperature = double.Parse(split_string[0]);
+                        external_temperature = double.Parse(split_string[1]);
+                        cp = double.Parse(split_string[2]);
+                        ci = double.Parse(split_string[3]);
+                        cd = double.Parse(split_string[4]);
+                        cu = double.Parse(split_string[5]);
+                        co = double.Parse(split_string[6]);
+                        grapher_status = int.Parse(split_string[7]);
+                        set_temperature = double.Parse(split_string[8]);
+                        mrunning = int.Parse(split_string[9]);
+                        heat_percent = double.Parse(split_string[10]);
                         //if (data.Contains("->") && data.Contains("deg C") && data.Contains("Int") && data.Contains("Ext") && data.Contains("Power (%)"))
                         //{
                         //string data_1 = data.Substring(data.IndexOf("Int:") + 4, 8);
                         //float d1 = float.Parse(data_1);
-                        string data_1 = split_string[0];
-                        float d1 = float.Parse(data_1);
+                        //string data_1 = split_string[0];
+                        //float d1 = float.Parse(data_1);
                         //string data_2 = data.Substring(data.IndexOf("Ext:") + 4, 8);
                         //float d2 = float.Parse(data_2);
-                        string data_2 = split_string[1];
-                        float d2 = float.Parse(data_2);
+                        //string data_2 = split_string[1];
+                        //float d2 = float.Parse(data_2);
                         //string data_3 = data.Substring(data.IndexOf("Power (%)") + 10, 8);
                         //float d3 = float.Parse(data_3);
-                        string data_3 = split_string[7];
-                        float d3 = float.Parse(data_3);
-                        power_percentage = d3;
+                        //string data_3 = split_string[7];
+                        //float d3 = float.Parse(data_3);
+                        //power_percentage = d3;
                         //power_percent.Text = d3.ToString();
-                        if (d1 < min_lim || d1 > max_lim)
+                        if (internal_temperature < min_lim || internal_temperature > max_lim)
                         {
-                            data_1 = "";
+                            ls1 = ""; //, ls2, ls3, lcons;
                         }
-                        if (d2 < min_lim || d2 > max_lim)
+                        if (external_temperature < min_lim || external_temperature > max_lim)
                         {
-                            data_2 = "";
+                            ls2 = "";
                         }
-                        if (d3 < 0 || d3 > 100)
+                        if (heat_percent < 0 || heat_percent > 100)
                         {
-                            data_3 = "";
+                            ls3 = "";
                         }
-                        data = data_1 + ", " + data_2 + ", " + data_3 + "\n";
+                        if (ls1.Length > 0) lcons += ls1 + ",";
+                        if (ls2.Length > 0) lcons += ls2 + ",";
+                        lcons += ls3; lcons += "\n";
+                        //lcons = ls1.Length ? ls1 + "," :  + ls2 + "," + ls3 + "\n";
                     }
                     else
                     {
@@ -208,11 +236,33 @@ namespace Seriallab
                         //data = System.Text.Encoding.Default.GetString(dataRecevied);
                         //data = mySerial.ReadLine();
                         //Console.WriteLine(data);
-                        ExponentialMovingAverageIndicator h = new ExponentialMovingAverageIndicator(100);
-                        h.AddDataPoint(power_percentage);
+                        //ExponentialMovingAverageIndicator h = new ExponentialMovingAverageIndicator(100);
+                        //h.AddDataPoint(power_percentage);
                         // Format to second decimal place.
-                        double val = h.Average * 15 * 1.414;
-                        power_percent.Text = val.ToString("0.00");
+                        //double val = h.Average * 15 * 1.414;
+                        //power_percent.Text = val.ToString("0.00");
+                        int_temp.Text = internal_temperature.ToString();
+                        ext_temp.Text = external_temperature.ToString();
+                        power_percent.Text = heat_percent.ToString();
+                        temp_up_down.Value = (decimal)set_temperature;
+                        if (grapher_status == 1)
+                        {
+                            graph_trigger.Checked = true;
+                            //temp_up_down.Enabled = false;
+                            //set_temperature_apply.Enabled = false;
+                        }
+                        else
+                        {
+                            graph_trigger.Checked = false;
+                            //temp_up_down.Enabled = true;
+                            //set_temperature_apply.Enabled = true;
+                        }
+                            
+                        if (mrunning == 1)
+                            start_button.Text = "Thermo Stop";
+                        else
+                            start_button.Text = "Thermo Start";
+
                         if (!plotter_flag && !backgroundWorker1.IsBusy)
                         {
                             //if (display_hex_radiobutton.Checked)
@@ -550,7 +600,11 @@ namespace Seriallab
         private void UserControl_state(bool value)
         {
             serial_options_group.Enabled = !value;
-            datalogger_options_panel.Enabled = !value;
+            //datalogger_options_panel.Enabled = !value;
+            datalogger_checkbox.Enabled = !value;
+            datalogger_append_radiobutton.Enabled = !value;
+            datalogger_overwrite_radiobutton.Enabled = !value;
+            graph_trigger.Enabled = value;
             write_options_group.Enabled = value;
             temperature_group.Enabled = value;
             start_button.Enabled = value;
@@ -559,6 +613,8 @@ namespace Seriallab
             {
                 connect.Text = "Disconnect";
                 toolStripStatusLabel1.Text = "Connected port: " + mySerial.PortName + " - " + mySerial.BaudRate + ", " + mySerial.DataBits + ", " + mySerial.Parity + ", " + mySerial.StopBits;
+                // R: Trigger graph on connect.
+                mySerial.Write("SET GRAPH 1\r\n");
             }
             else
             {
@@ -629,31 +685,38 @@ namespace Seriallab
 
         }
 
+        private void graph_trigger_CheckedChanged(object sender, EventArgs e)
+        {
+            //temp_up_down.Enabled = graph_trigger.Checked;
+            bool trig_status = graph_trigger.Checked;
+            if (trig_status == true)
+            {
+                mySerial.Write("SET GRAPH 1\r\n");
+                temp_up_down.Enabled = false;
+                set_temperature_apply.Enabled = false;
+            }
+            else
+            {
+                mySerial.Write("SET GRAPH 0\r\n");
+                temp_up_down.Enabled = true;
+                set_temperature_apply.Enabled = true;
+            }
+        }
+
         private void button1_Click(object sender, EventArgs e)
         {
-            int index = 0;// = set_point.SelectedIndex + 1;
-            if (index != 0)
-            {
-                mySerial.Write("eval \"temp(" + index.ToString() + "," + temp_up_down.Value.ToString() + ")\"\r\n");
-                Task.Delay(500).ContinueWith(t =>
-                {
-                    mySerial.Write("eval \"spsel(" + index.ToString() + ")\"\r\n");
-                });
-            }
+
         }
 
         private void start_button_Click(object sender, EventArgs e)
         {
-            mstart = !mstart;
-            if (mstart)
+            if (mrunning == 1)
             {
-                start_button.Text = "Stop";
-                mySerial.Write("eval start\r\n");
+                mySerial.Write("OFF\r\n");
             }
             else
             {
-                start_button.Text = "Start";
-                mySerial.Write("eval stop\r\n");
+                mySerial.Write("ON\r\n");
             }
         }
 
@@ -684,6 +747,15 @@ namespace Seriallab
         private void label11_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void apply_Click(object sender, EventArgs e)
+        {
+                mySerial.Write("SET SP " + temp_up_down.Value.ToString() + "\r\n");
+                //Task.Delay(500).ContinueWith(t =>
+                //{
+                //    mySerial.Write("eval \"spsel(" + index.ToString() + ")\"\r\n");
+                //});
         }
     }
     public class ExponentialMovingAverageIndicator
