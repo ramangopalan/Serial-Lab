@@ -198,21 +198,21 @@ namespace Seriallab
                         //float d3 = float.Parse(data_3);
                         //power_percentage = d3;
                         //power_percent.Text = d3.ToString();
-                        if (internal_temperature < min_lim || internal_temperature > max_lim)
-                        {
-                            ls1 = ""; //, ls2, ls3, lcons;
-                        }
-                        if (external_temperature < min_lim || external_temperature > max_lim)
-                        {
-                            ls2 = "";
-                        }
-                        if (heat_percent < 0 || heat_percent > 100)
-                        {
-                            ls3 = "";
-                        }
-                        if (ls1.Length > 0) lcons += ls1 + ",";
-                        if (ls2.Length > 0) lcons += ls2 + ",";
-                        lcons += ls3; lcons += "\n";
+                        //if (internal_temperature < min_lim || internal_temperature > max_lim)
+                        //{
+                        //    ls1 = ""; //, ls2, ls3, lcons;
+                        //}
+                        //if (external_temperature < min_lim || external_temperature > max_lim)
+                        //{
+                        //    ls2 = "";
+                        //}
+                        //if (heat_percent < 0 || heat_percent > 100)
+                        //{
+                        //    ls3 = "";
+                        //}
+                        //if (ls1.Length > 0) lcons += ls1 + ",";
+                        //if (ls2.Length > 0) lcons += ls2 + ",";
+                        //lcons += ls3; lcons += "\n";
                         //lcons = ls1.Length ? ls1 + "," :  + ls2 + "," + ls3 + "\n";
                         lcons_ = split_string[0] + "," + split_string[1] + "," + split_string[10];
                     }
