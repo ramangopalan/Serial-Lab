@@ -119,7 +119,7 @@
             this.label12 = new System.Windows.Forms.Label();
             this.int_temp = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.flow_text_box = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.temp_up_down = new System.Windows.Forms.NumericUpDown();
             this.label9 = new System.Windows.Forms.Label();
@@ -1128,6 +1128,7 @@
             this.power_percent.TabIndex = 29;
             this.power_percent.Text = "0.00";
             this.power_percent.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.power_percent.TextChanged += new System.EventHandler(this.power_percent_TextChanged);
             // 
             // openFileDialog1
             // 
@@ -1159,7 +1160,7 @@
             this.temperature_group.Controls.Add(this.label11);
             this.temperature_group.Controls.Add(this.power_percent);
             this.temperature_group.Controls.Add(this.label5);
-            this.temperature_group.Controls.Add(this.textBox2);
+            this.temperature_group.Controls.Add(this.flow_text_box);
             this.temperature_group.Controls.Add(this.label8);
             this.temperature_group.Location = new System.Drawing.Point(619, 63);
             this.temperature_group.Margin = new System.Windows.Forms.Padding(4);
@@ -1208,15 +1209,15 @@
             this.label11.TabIndex = 32;
             this.label11.Text = "Internal:";
             // 
-            // textBox2
+            // flow_text_box
             // 
-            this.textBox2.Location = new System.Drawing.Point(81, 24);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.ReadOnly = true;
-            this.textBox2.Size = new System.Drawing.Size(98, 22);
-            this.textBox2.TabIndex = 31;
-            this.textBox2.Text = "Sp1";
-            this.textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.flow_text_box.Location = new System.Drawing.Point(81, 24);
+            this.flow_text_box.Name = "flow_text_box";
+            this.flow_text_box.ReadOnly = true;
+            this.flow_text_box.Size = new System.Drawing.Size(98, 22);
+            this.flow_text_box.TabIndex = 31;
+            this.flow_text_box.Text = "0.0";
+            this.flow_text_box.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label8
             // 
@@ -1224,9 +1225,9 @@
             this.label8.Location = new System.Drawing.Point(8, 27);
             this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(45, 17);
+            this.label8.Size = new System.Drawing.Size(69, 17);
             this.label8.TabIndex = 0;
-            this.label8.Text = "Index:";
+            this.label8.Text = "Flow rate:";
             // 
             // temp_up_down
             // 
@@ -1434,7 +1435,7 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.TextBox int_temp;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox flow_text_box;
         private System.Windows.Forms.CheckBox graph_trigger;
     }
 }

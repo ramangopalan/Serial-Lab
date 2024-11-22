@@ -38,7 +38,7 @@ namespace Seriallab
         double cp, ci, cd, cu, co;
         int grapher_status;
         double set_temperature;
-        int mrunning; double heat_percent;
+        int mrunning; double heat_percent; double flow_rate;
         string ls1, ls2, ls3, lcons, lcons_;
 
         bool plot_triggered = false;
@@ -182,6 +182,7 @@ namespace Seriallab
                         set_temperature = double.Parse(split_string[8]);
                         mrunning = int.Parse(split_string[9]);
                         heat_percent = double.Parse(split_string[10]);
+                        flow_rate = double.Parse(split_string[11]);
                         //if (data.Contains("->") && data.Contains("deg C") && data.Contains("Int") && data.Contains("Ext") && data.Contains("Power (%)"))
                         //{
                         //string data_1 = data.Substring(data.IndexOf("Int:") + 4, 8);
@@ -214,7 +215,7 @@ namespace Seriallab
                         //if (ls2.Length > 0) lcons += ls2 + ",";
                         //lcons += ls3; lcons += "\n";
                         //lcons = ls1.Length ? ls1 + "," :  + ls2 + "," + ls3 + "\n";
-                        lcons_ = split_string[0] + "," + split_string[1] + "," + split_string[10];
+                        lcons_ = split_string[0] + "," + split_string[1] + "," + split_string[10] + "," + split_string[11];
                     }
                     else
                     {
@@ -252,6 +253,7 @@ namespace Seriallab
                         else
                             ext_temp.Text = string.Format("{0}  °C", external_temperature.ToString());
                         power_percent.Text = heat_percent.ToString();
+                        flow_text_box.Text = flow_rate.ToString();
                         temp_up_down.Value = (decimal)set_temperature;
                         if (grapher_status == 1)
                         {
@@ -691,6 +693,11 @@ namespace Seriallab
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void power_percent_TextChanged(object sender, EventArgs e)
         {
 
         }
