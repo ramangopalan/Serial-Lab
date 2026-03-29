@@ -21,6 +21,7 @@ using System.Windows.Forms.DataVisualization.Charting;
 using System.Timers;
 using System.IO;
 using System.Threading;
+using Newtonsoft.Json;
 
 namespace Seriallab
 {
@@ -30,6 +31,7 @@ namespace Seriallab
         int graph_scaler = 500;
         int send_repeat_counter = 0;
         bool send_data_flag = false;
+
         bool plotter_flag = false;
         System.IO.StreamWriter out_file;
         System.IO.StreamReader in_file;
@@ -43,10 +45,13 @@ namespace Seriallab
 
         bool plot_triggered = false;
         bool mstart = false;
+
+        // ===== RAMP/SOAK ENGINE =====
+        RampSoakEngine rampEngine = new RampSoakEngine();
+        System.Windows.Forms.Timer rampTimer = new System.Windows.Forms.Timer();
+        bool rampMode = false;
+
         //float power_percentage;
-        
-
-
 
         public MainForm()
         {
@@ -91,6 +96,32 @@ namespace Seriallab
             graph.Series[3].LegendText = "####";
             graph.Series[4].LegendText = "####";
 
+            rampTimer.Interval = 1000; // 1 second update
+            rampTimer.Tick += RampTimer_Tick;
+            bool rampMode = false;
+
+        }
+
+        private void RampTimer_Tick(object sender, EventArgs e)
+        {
+            rampEngine.Update();
+
+            if (rampEngine.Running)
+            {
+                double sp = rampEngine.CurrentSP;
+
+                if (mySerial.IsOpen)
+                {
+                    try
+                    {
+                        mySerial.Write("SET SP " + sp.ToString("0.00") + "\r\n");
+                    }
+                    catch { }
+                }
+
+                ramp_current_sp_label.Text = sp.ToString("0.00");
+                ramp_step_label.Text = rampEngine.StepIndex.ToString();
+            }
         }
 
         /*connect and disconnect*/
@@ -156,7 +187,7 @@ namespace Seriallab
         /* read data from serial */
         private void rx_data_event(object sender, System.IO.Ports.SerialDataReceivedEventArgs e)
         {
-            float max_lim = 200, min_lim = -90;
+            float max_lim = 250, min_lim = -100;
             if (mySerial.IsOpen)
             {
                 try
@@ -216,6 +247,7 @@ namespace Seriallab
                         //lcons += ls3; lcons += "\n";
                         //lcons = ls1.Length ? ls1 + "," :  + ls2 + "," + ls3 + "\n";
                         lcons_ = split_string[0] + "," + split_string[1] + "," + split_string[10] + "," + split_string[11];
+                        // lcons_ = split_string[0] + "," + split_string[1] + "," + split_string[10];// + ",";// + split_string[11];
                     }
                     else
                     {
@@ -702,6 +734,73 @@ namespace Seriallab
 
         }
 
+        private void rampGrid_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void rampStartBtn_Click(object sender, EventArgs e)
+        {
+            rampMode = true;
+            var profile = new RampSoakProfile();
+
+            foreach (DataGridViewRow row in rampGrid.Rows)
+            {
+                if (row.Cells[0].Value == null) continue;
+
+                profile.Steps.Add(new RampSoakStep
+                {
+                    Target = Convert.ToDouble(row.Cells[0].Value),
+                    RampRate = Convert.ToDouble(row.Cells[1].Value),
+                    SoakSeconds = Convert.ToDouble(row.Cells[2].Value)
+                });
+            }
+
+            rampEngine.Start(profile, set_temperature);
+            rampTimer.Start();
+        }
+
+        private void rampStopBtn_Click(object sender, EventArgs e)
+        {
+            rampMode = false;
+            rampEngine.Stop();
+            rampTimer.Stop();
+        }
+
+        private void rampSaveBtn_Click(object sender, EventArgs e)
+        {
+            var profile = new RampSoakProfile();
+            profile.Name = "Profile1";
+
+            foreach (DataGridViewRow row in rampGrid.Rows)
+            {
+                if (row.Cells[0].Value == null) continue;
+
+                profile.Steps.Add(new RampSoakStep
+                {
+                    Target = Convert.ToDouble(row.Cells[0].Value),
+                    RampRate = Convert.ToDouble(row.Cells[1].Value),
+                    SoakSeconds = Convert.ToDouble(row.Cells[2].Value)
+                });
+            }
+
+            // File.WriteAllText("profile.json", JsonSerializer.Serialize(profile));
+            File.WriteAllText("profile.json", JsonConvert.SerializeObject(profile, Formatting.Indented));
+        }
+
+        private void rampLoadBtn_Click(object sender, EventArgs e)
+        {
+            var profile = JsonConvert.DeserializeObject<RampSoakProfile>(
+                File.ReadAllText("profile.json"));
+
+            rampGrid.Rows.Clear();
+
+            foreach (var step in profile.Steps)
+            {
+                rampGrid.Rows.Add(step.Target, step.RampRate, step.SoakSeconds);
+            }
+        }
+
         private void graph_trigger_CheckedChanged(object sender, EventArgs e)
         {
             //temp_up_down.Enabled = graph_trigger.Checked;
@@ -768,11 +867,15 @@ namespace Seriallab
 
         private void apply_Click(object sender, EventArgs e)
         {
+            // mySerial.Write("SET SP " + temp_up_down.Value.ToString() + "\r\n");
+            //Task.Delay(500).ContinueWith(t =>
+            //{
+            //    mySerial.Write("eval \"spsel(" + index.ToString() + ")\"\r\n");
+            //});
+            if (!rampMode)
+            {
                 mySerial.Write("SET SP " + temp_up_down.Value.ToString() + "\r\n");
-                //Task.Delay(500).ContinueWith(t =>
-                //{
-                //    mySerial.Write("eval \"spsel(" + index.ToString() + ")\"\r\n");
-                //});
+            }
         }
     }
     public class ExponentialMovingAverageIndicator

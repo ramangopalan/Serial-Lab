@@ -101,6 +101,19 @@
             this.graph_menu = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.saveAsImageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.clearToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.rampTab = new System.Windows.Forms.TabPage();
+            this.rampLoadBtn = new System.Windows.Forms.Button();
+            this.ramp_current_sp_label = new System.Windows.Forms.Label();
+            this.labelSP = new System.Windows.Forms.Label();
+            this.ramp_step_label = new System.Windows.Forms.Label();
+            this.labelStep = new System.Windows.Forms.Label();
+            this.rampSaveBtn = new System.Windows.Forms.Button();
+            this.rampStopBtn = new System.Windows.Forms.Button();
+            this.rampStartBtn = new System.Windows.Forms.Button();
+            this.rampGrid = new System.Windows.Forms.DataGridView();
+            this.Target = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RampRate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Soak = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.datalogger_options_panel = new System.Windows.Forms.Panel();
             this.graph_trigger = new System.Windows.Forms.CheckBox();
@@ -147,6 +160,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.graph_speed)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.graph)).BeginInit();
             this.graph_menu.SuspendLayout();
+            this.rampTab.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.rampGrid)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.datalogger_options_panel.SuspendLayout();
             this.temperature_group.SuspendLayout();
@@ -352,6 +367,7 @@
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Controls.Add(this.rampTab);
             this.tabControl1.Location = new System.Drawing.Point(19, 231);
             this.tabControl1.Margin = new System.Windows.Forms.Padding(4);
             this.tabControl1.Name = "tabControl1";
@@ -1023,6 +1039,138 @@
             this.clearToolStripMenuItem1.Text = "Clear";
             this.clearToolStripMenuItem1.Click += new System.EventHandler(this.clear_graph_Click);
             // 
+            // rampTab
+            // 
+            this.rampTab.Controls.Add(this.rampLoadBtn);
+            this.rampTab.Controls.Add(this.ramp_current_sp_label);
+            this.rampTab.Controls.Add(this.labelSP);
+            this.rampTab.Controls.Add(this.ramp_step_label);
+            this.rampTab.Controls.Add(this.labelStep);
+            this.rampTab.Controls.Add(this.rampSaveBtn);
+            this.rampTab.Controls.Add(this.rampStopBtn);
+            this.rampTab.Controls.Add(this.rampStartBtn);
+            this.rampTab.Controls.Add(this.rampGrid);
+            this.rampTab.Location = new System.Drawing.Point(4, 25);
+            this.rampTab.Name = "rampTab";
+            this.rampTab.Padding = new System.Windows.Forms.Padding(3);
+            this.rampTab.Size = new System.Drawing.Size(789, 469);
+            this.rampTab.TabIndex = 3;
+            this.rampTab.Text = "Ramp/Soak";
+            this.rampTab.UseVisualStyleBackColor = true;
+            // 
+            // rampLoadBtn
+            // 
+            this.rampLoadBtn.Location = new System.Drawing.Point(313, 270);
+            this.rampLoadBtn.Name = "rampLoadBtn";
+            this.rampLoadBtn.Size = new System.Drawing.Size(94, 23);
+            this.rampLoadBtn.TabIndex = 8;
+            this.rampLoadBtn.Text = "Load Profile";
+            this.rampLoadBtn.UseVisualStyleBackColor = true;
+            this.rampLoadBtn.Click += new System.EventHandler(this.rampLoadBtn_Click);
+            // 
+            // ramp_current_sp_label
+            // 
+            this.ramp_current_sp_label.AutoSize = true;
+            this.ramp_current_sp_label.Location = new System.Drawing.Point(647, 173);
+            this.ramp_current_sp_label.Name = "ramp_current_sp_label";
+            this.ramp_current_sp_label.Size = new System.Drawing.Size(36, 17);
+            this.ramp_current_sp_label.TabIndex = 7;
+            this.ramp_current_sp_label.Text = "0.00";
+            // 
+            // labelSP
+            // 
+            this.labelSP.AutoSize = true;
+            this.labelSP.Location = new System.Drawing.Point(610, 173);
+            this.labelSP.Name = "labelSP";
+            this.labelSP.Size = new System.Drawing.Size(30, 17);
+            this.labelSP.TabIndex = 6;
+            this.labelSP.Text = "SP:";
+            // 
+            // ramp_step_label
+            // 
+            this.ramp_step_label.AutoSize = true;
+            this.ramp_step_label.Location = new System.Drawing.Point(650, 144);
+            this.ramp_step_label.Name = "ramp_step_label";
+            this.ramp_step_label.Size = new System.Drawing.Size(16, 17);
+            this.ramp_step_label.TabIndex = 5;
+            this.ramp_step_label.Text = "0";
+            // 
+            // labelStep
+            // 
+            this.labelStep.AutoSize = true;
+            this.labelStep.Location = new System.Drawing.Point(610, 144);
+            this.labelStep.Name = "labelStep";
+            this.labelStep.Size = new System.Drawing.Size(41, 17);
+            this.labelStep.TabIndex = 4;
+            this.labelStep.Text = "Step:";
+            // 
+            // rampSaveBtn
+            // 
+            this.rampSaveBtn.Location = new System.Drawing.Point(200, 270);
+            this.rampSaveBtn.Name = "rampSaveBtn";
+            this.rampSaveBtn.Size = new System.Drawing.Size(93, 23);
+            this.rampSaveBtn.TabIndex = 3;
+            this.rampSaveBtn.Text = "Save Profile";
+            this.rampSaveBtn.UseVisualStyleBackColor = true;
+            this.rampSaveBtn.Click += new System.EventHandler(this.rampSaveBtn_Click);
+            // 
+            // rampStopBtn
+            // 
+            this.rampStopBtn.Location = new System.Drawing.Point(100, 270);
+            this.rampStopBtn.Name = "rampStopBtn";
+            this.rampStopBtn.Size = new System.Drawing.Size(75, 23);
+            this.rampStopBtn.TabIndex = 2;
+            this.rampStopBtn.Text = "Stop";
+            this.rampStopBtn.UseVisualStyleBackColor = true;
+            this.rampStopBtn.Click += new System.EventHandler(this.rampStopBtn_Click);
+            // 
+            // rampStartBtn
+            // 
+            this.rampStartBtn.Location = new System.Drawing.Point(10, 270);
+            this.rampStartBtn.Name = "rampStartBtn";
+            this.rampStartBtn.Size = new System.Drawing.Size(75, 23);
+            this.rampStartBtn.TabIndex = 1;
+            this.rampStartBtn.Text = "Start";
+            this.rampStartBtn.UseVisualStyleBackColor = true;
+            this.rampStartBtn.Click += new System.EventHandler(this.rampStartBtn_Click);
+            // 
+            // rampGrid
+            // 
+            this.rampGrid.AllowUserToOrderColumns = true;
+            this.rampGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.rampGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Target,
+            this.RampRate,
+            this.Soak});
+            this.rampGrid.Location = new System.Drawing.Point(0, 0);
+            this.rampGrid.Name = "rampGrid";
+            this.rampGrid.RowHeadersWidth = 51;
+            this.rampGrid.RowTemplate.Height = 24;
+            this.rampGrid.Size = new System.Drawing.Size(588, 245);
+            this.rampGrid.TabIndex = 0;
+            this.rampGrid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.rampGrid_CellContentClick);
+            // 
+            // Target
+            // 
+            this.Target.HeaderText = "Target (°C)";
+            this.Target.MinimumWidth = 6;
+            this.Target.Name = "Target";
+            this.Target.Width = 125;
+            // 
+            // RampRate
+            // 
+            this.RampRate.HeaderText = "Ramp Rate (°C/s)";
+            this.RampRate.MinimumWidth = 6;
+            this.RampRate.Name = "RampRate";
+            this.RampRate.Width = 125;
+            // 
+            // Soak
+            // 
+            this.Soak.HeaderText = "Soak Time (s)";
+            this.Soak.MinimumWidth = 6;
+            this.Soak.Name = "Soak";
+            this.Soak.Width = 125;
+            // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.datalogger_options_panel);
@@ -1235,12 +1383,12 @@
             this.temp_up_down.Location = new System.Drawing.Point(303, 22);
             this.temp_up_down.Margin = new System.Windows.Forms.Padding(4);
             this.temp_up_down.Maximum = new decimal(new int[] {
-            200,
+            250,
             0,
             0,
             0});
             this.temp_up_down.Minimum = new decimal(new int[] {
-            50,
+            100,
             0,
             0,
             -2147483648});
@@ -1336,6 +1484,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.graph_speed)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.graph)).EndInit();
             this.graph_menu.ResumeLayout(false);
+            this.rampTab.ResumeLayout(false);
+            this.rampTab.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.rampGrid)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.datalogger_options_panel.ResumeLayout(false);
             this.datalogger_options_panel.PerformLayout();
@@ -1437,6 +1588,19 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox flow_text_box;
         private System.Windows.Forms.CheckBox graph_trigger;
+        private System.Windows.Forms.TabPage rampTab;
+        private System.Windows.Forms.DataGridView rampGrid;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Target;
+        private System.Windows.Forms.DataGridViewTextBoxColumn RampRate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Soak;
+        private System.Windows.Forms.Button rampSaveBtn;
+        private System.Windows.Forms.Button rampStopBtn;
+        private System.Windows.Forms.Button rampStartBtn;
+        private System.Windows.Forms.Button rampLoadBtn;
+        private System.Windows.Forms.Label ramp_current_sp_label;
+        private System.Windows.Forms.Label labelSP;
+        private System.Windows.Forms.Label ramp_step_label;
+        private System.Windows.Forms.Label labelStep;
     }
 }
 
